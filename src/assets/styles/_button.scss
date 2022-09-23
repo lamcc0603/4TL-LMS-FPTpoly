@@ -1,0 +1,15 @@
+.btn__login {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  &--text {
+    text-align: center;
+    font-size: 1.6rem;
+    display: block;
+    width: 11rem;
+    height: 4rem;
+    line-height: 4rem;
+    background: var(--light-green);
+    border-radius: 7px;
+  }
+}
