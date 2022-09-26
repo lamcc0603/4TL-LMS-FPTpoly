@@ -8,4 +8,3 @@ export default {
   components: {},
 };
 </script>
-HeaderView
