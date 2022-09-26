@@ -1,10 +1,10 @@
 <template>
   <ul class="menu">
     <li class="menu__item">
-      <router-link to="" class="menu__link">Trang chủ</router-link>
+      <router-link to="/" class="menu__link">Trang chủ</router-link>
     </li>
     <li class="menu__item">
-      <router-link to="" class="menu__link">abc</router-link>
+      <router-link to="course" class="menu__link">Course</router-link>
     </li>
     <li class="menu__item">
       <router-link to="/about" class="menu__link">About</router-link>

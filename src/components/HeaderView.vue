@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import NavView from "@/views/NavView.vue";
+import NavView from "@/components/NavView.vue";
 
 import { ref } from "@vue/runtime-core";
 
