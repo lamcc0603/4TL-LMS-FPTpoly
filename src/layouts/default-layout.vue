@@ -1,6 +1,8 @@
 <template>
   <header-view />
-  <slot />
+  <div class="container">
+    <slot />
+  </div>
   <footer-view />
 </template>
 

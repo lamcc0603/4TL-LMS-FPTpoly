@@ -7,4 +7,16 @@
   --white: #fff;
   --black: #000;
   --notification: #fd4339;
+
+  /* chat */
+  --chat-boder: #e5e5e5;
+  --chat-box-item: #ffffff;
+  --chat-box-item-hover: #e8e8e8;
+  --message-other: #e3e3e3;
+  --message-self: #84a98c;
+  --btn-send-message: #84a98c;
+
+  /* scroll */
+  --scroll-background: #cfcfcf;
+  --scroll-color: #ececec;
 }

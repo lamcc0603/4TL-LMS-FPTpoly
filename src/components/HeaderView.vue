@@ -5,7 +5,9 @@
         <img src="@/assets/images/logo_fpt.png" alt="logo_fpt" />
       </router-link>
     </div>
+
     <nav-view class="nav" />
+
     <div class="user__box" v-if="isLogin">
       <div class="user__image" @click="isShow = !isShow">
         <img src="@/assets/images/user1.jpg" alt="" />
@@ -69,6 +71,7 @@ export default {
   background: var(--darkest-green);
   padding: 0 5rem;
   max-height: 10rem;
+  margin-bottom: 1rem;
   &__logo {
     display: flex;
     flex-direction: column;

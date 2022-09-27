@@ -114,6 +114,7 @@ export default {};
   grid-template-columns: 30rem repeat(3, 1fr);
   gap: 3rem;
   padding: 5rem 5rem 3rem 5rem;
+  margin-top: 1rem;
   &__logo {
     display: flex;
     flex-direction: column;

@@ -7,6 +7,9 @@
       <router-link to="course" class="menu__link">Course</router-link>
     </li>
     <li class="menu__item">
+      <router-link to="/chat" class="menu__link">Chat</router-link>
+    </li>
+    <li class="menu__item">
       <router-link to="/about" class="menu__link">About</router-link>
     </li>
     <li class="menu__item">

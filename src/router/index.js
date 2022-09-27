@@ -4,6 +4,9 @@ import LoginView from "@/components/LoginView.vue";
 import CourseView from "@/components/CourseView.vue";
 import HomeView from "@/components/HomeView.vue";
 
+// Chat
+import ClientChat from "@/components/Chat/ClientChat.vue";
+
 const routes = [
   {
     path: "/",
@@ -29,9 +32,9 @@ const routes = [
     component: LoginView,
   },
   {
-    path: "/course",
-    name: "course",
-    component: CourseView,
+    path: "/chat",
+    name: "chat",
+    component: ClientChat,
   },
 ];
 
