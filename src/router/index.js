@@ -7,6 +7,9 @@ import HomeView from "@/components/HomeView.vue";
 // Chat
 import ClientChat from "@/components/Chat/ClientChat.vue";
 
+// Quiz
+import QuizDetail from "@/components/QuizDetail.vue";
+
 const routes = [
   {
     path: "/",
@@ -35,6 +38,11 @@ const routes = [
     path: "/chat",
     name: "chat",
     component: ClientChat,
+  },
+  {
+    path: "/quiz",
+    name: "quiz",
+    component: QuizDetail,
   },
 ];
 

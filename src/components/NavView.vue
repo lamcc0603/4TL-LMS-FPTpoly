@@ -10,7 +10,7 @@
       <router-link to="/chat" class="menu__link">Chat</router-link>
     </li>
     <li class="menu__item">
-      <router-link to="/about" class="menu__link">About</router-link>
+      <router-link to="/quiz" class="menu__link">Quiz</router-link>
     </li>
     <li class="menu__item">
       <router-link to="/about" class="menu__link">About</router-link>
