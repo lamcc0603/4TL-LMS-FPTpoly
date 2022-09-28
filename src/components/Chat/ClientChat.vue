@@ -25,6 +25,8 @@ export default {
 .chat {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  max-width: 1300px;
+  margin: 0 auto;
   &__listChat {
     grid-column: 1/2;
     border-right: 1px solid var(--chat-boder);
