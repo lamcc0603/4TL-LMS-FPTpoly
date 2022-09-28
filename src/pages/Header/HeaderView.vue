@@ -18,21 +18,22 @@
         <div class="notification__circle">1</div>
       </div>
       <ul class="user__setting" v-show="isShow">
-        <li class="user__setting--item">
-          <router-link to="" class="user__setting--link">
-            <i class="fa-solid fa-user"></i> Trang cá nhân</router-link
-          >
-        </li>
-        <li class="user__setting--item">
-          <router-link to="" class="user__setting--link">
-            <i class="fa-solid fa-message"></i> Nhắn tin</router-link
-          >
-        </li>
-        <li class="user__setting--item">
-          <p @click="toggleLogin" to="" class="user__setting--link">
-            <i class="fa-solid fa-right-from-bracket"></i> Thoát
-          </p>
-        </li>
+        <UserSettingItem
+          icon=" fa-solid fa-user"
+          itemTitle="Trang cá nhân"
+          itemLink="/"
+        />
+        <UserSettingItem
+          icon=" fa-solid fa-message"
+          itemTitle="Nhắn tin"
+          itemLink="/chat"
+        />
+        <UserSettingItem
+          @click="toggleLogin"
+          icon="fa-solid fa-right-from-bracket"
+          itemTitle="Thoát"
+          itemLink="/chat"
+        />
       </ul>
     </div>
 
@@ -45,12 +46,12 @@
 </template>
 
 <script>
-import NavView from "@/components/NavView.vue";
-
+import NavView from "@/pages/Nav/NavView.vue";
+import UserSettingItem from "@/components/Header/UserSettingItem.vue";
 import { ref } from "@vue/runtime-core";
 
 export default {
-  components: { NavView },
+  components: { NavView, UserSettingItem },
   setup() {
     const isLogin = ref(false);
     const isShow = ref(false);
@@ -64,7 +65,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .header {
   display: grid;
   grid-template-columns: 15% 1fr 30%;
@@ -91,7 +92,7 @@ export default {
     }
   }
 }
-.user {
+.header .user {
   &__box {
     display: flex;
     flex-direction: row-reverse;
@@ -155,7 +156,7 @@ export default {
   }
 }
 
-.notification__circle {
+.header .notification__circle {
   position: absolute;
   top: -30%;
   right: -40%;
@@ -185,7 +186,7 @@ export default {
   .btn__login {
     margin-left: auto;
   }
-  .user {
+  .header .user {
     &__box {
       margin-left: auto;
     }
@@ -219,10 +220,10 @@ export default {
     // opacity: 0;
     // visibility: hidden;
   }
-  .nav {
+  .header .nav {
     order: 1;
   }
-  .user {
+  .header .user {
     &__box {
       order: 3;
     }

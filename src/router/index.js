@@ -1,8 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AboutView from "@/components/AboutView.vue";
+
+// About
+import AboutView from "@/pages/About/AboutView.vue";
+
+// Login
 import LoginView from "@/components/LoginView.vue";
-import CourseView from "@/components/CourseView.vue";
-import HomeView from "@/components/HomeView.vue";
+
+// Course
+import CourseView from "@/pages/Course/CourseView.vue";
+
+// Home
+import HomeView from "@/pages/Home/HomeView.vue";
 
 // Chat
 import ClientChat from "@/components/Chat/ClientChat.vue";
@@ -32,6 +40,7 @@ const routes = [
   {
     path: "/login",
     name: "login",
+
     component: LoginView,
   },
   {

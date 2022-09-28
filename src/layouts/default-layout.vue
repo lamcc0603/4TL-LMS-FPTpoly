@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import HeaderView from "@/components/HeaderView.vue";
-import FooterView from "@/components/FooterView.vue";
+import HeaderView from "@/pages/Header/HeaderView.vue";
+import FooterView from "@/pages/Footter/FooterView.vue";
 export default {
   components: { HeaderView, FooterView },
 

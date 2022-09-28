@@ -36,94 +36,94 @@
   </body>
 </template>
 
-<script type="text/javascript">
-window.onload = function () {
-  const quizData = [
-    {
-      question: "Testing co ho tro cac annotation khong?",
-      question_item: "Testing co ho tro cac annotation khong?",
-      a: "khong",
-      b: "co",
-      c: "",
-      d: "",
-      correct: "b",
-    },
-    {
-      question: "Testing co ho tro cac annotation khong1?",
-      question_item: "Testing co ho tro cac annotation khong1?",
-      a: "khong",
-      b: "co",
-      c: "khong co",
-      d: "co khong",
-      correct: "b",
-    },
-    {
-      question: "Testing co ho tro cac annotation khong2?",
-      question_item: "Testing co ho tro cac annotation khong2?",
-      a: "khong",
-      b: "co",
-      c: "khong co",
-      d: "co khong",
-      correct: "b",
-    },
-    {
-      question: "Testing co ho tro cac annotation khong3?",
-      question_item: "Testing co ho tro cac annotation khong3?",
-      a: "khong",
-      b: "co",
-      c: "khong co",
-      d: "co khong",
-      correct: "b",
-    },
-    {
-      question: "Testing co ho tro cac annotation khong4?",
-      question_item: "Testing co ho tro cac annotation khong4?",
-      a: "khong",
-      b: "co",
-      c: "khong co",
-      d: "co khong",
-      correct: "b",
-    },
-    {
-      question: "Testing co ho tro cac annotation khong5?",
-      question_item: "Testing co ho tro cac annotation khong5?",
-      a: "khong",
-      b: "co",
-      c: "khong co",
-      d: "co khong",
-      correct: "b",
-    },
-  ];
+<script>
+// window.onload = function () {
+//   const quizData = [
+//     {
+//       question: "Testing co ho tro cac annotation khong?",
+//       question_item: "Testing co ho tro cac annotation khong?",
+//       a: "khong",
+//       b: "co",
+//       c: "",
+//       d: "",
+//       correct: "b",
+//     },
+//     {
+//       question: "Testing co ho tro cac annotation khong1?",
+//       question_item: "Testing co ho tro cac annotation khong1?",
+//       a: "khong",
+//       b: "co",
+//       c: "khong co",
+//       d: "co khong",
+//       correct: "b",
+//     },
+//     {
+//       question: "Testing co ho tro cac annotation khong2?",
+//       question_item: "Testing co ho tro cac annotation khong2?",
+//       a: "khong",
+//       b: "co",
+//       c: "khong co",
+//       d: "co khong",
+//       correct: "b",
+//     },
+//     {
+//       question: "Testing co ho tro cac annotation khong3?",
+//       question_item: "Testing co ho tro cac annotation khong3?",
+//       a: "khong",
+//       b: "co",
+//       c: "khong co",
+//       d: "co khong",
+//       correct: "b",
+//     },
+//     {
+//       question: "Testing co ho tro cac annotation khong4?",
+//       question_item: "Testing co ho tro cac annotation khong4?",
+//       a: "khong",
+//       b: "co",
+//       c: "khong co",
+//       d: "co khong",
+//       correct: "b",
+//     },
+//     {
+//       question: "Testing co ho tro cac annotation khong5?",
+//       question_item: "Testing co ho tro cac annotation khong5?",
+//       a: "khong",
+//       b: "co",
+//       c: "khong co",
+//       d: "co khong",
+//       correct: "b",
+//     },
+//   ];
 
-  const questionEl = document.querySelector("#question");
-  const questionElItem = document.querySelector("#question_item");
-  const a_text = document.querySelector("#a_text");
-  const b_text = document.querySelector("#b_text");
-  const c_text = document.querySelector("#c_text");
-  const d_text = document.querySelector("#d_text");
-  const submitBtn = document.querySelector("#submit");
+//   const questionEl = document.querySelector("#question");
+//   const questionElItem = document.querySelector("#question_item");
+//   const a_text = document.querySelector("#a_text");
+//   const b_text = document.querySelector("#b_text");
+//   const c_text = document.querySelector("#c_text");
+//   const d_text = document.querySelector("#d_text");
+//   const submitBtn = document.querySelector("#submit");
 
-  let currentQuiz = 0;
+//   let currentQuiz = 0;
 
-  loadQuiz();
+//   loadQuiz();
 
-  function loadQuiz() {
-    const currentQuizData = quizData[currentQuiz];
+//   function loadQuiz() {
+//     const currentQuizData = quizData[currentQuiz];
 
-    questionEl.innerText = currentQuizData.question;
-    questionElItem.innerText = currentQuizData.question_item;
-    a_text.innerText = currentQuizData.a;
-    b_text.innerText = currentQuizData.b;
-    c_text.innerText = currentQuizData.c;
-    d_text.innerText = currentQuizData.d;
-  }
+//     questionEl.innerText = currentQuizData.question;
+//     questionElItem.innerText = currentQuizData.question_item;
+//     a_text.innerText = currentQuizData.a;
+//     b_text.innerText = currentQuizData.b;
+//     c_text.innerText = currentQuizData.c;
+//     d_text.innerText = currentQuizData.d;
+//   }
 
-  submitBtn.addEventListener("click", () => {
-    currentQuiz++;
+//   submitBtn.addEventListener("click", () => {
+//     currentQuiz++;
 
-    loadQuiz();
-  });
-};
+//     loadQuiz();
+//   });
+// };
 </script>
 
 <style scoped lang="scss">
