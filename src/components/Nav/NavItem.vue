@@ -37,4 +37,11 @@ export default {
     height: 100%;
   }
 }
+@media screen and (max-width: 1366px) {
+  .menu {
+    &__item {
+      padding: 0;
+    }
+  }
+}
 </style>

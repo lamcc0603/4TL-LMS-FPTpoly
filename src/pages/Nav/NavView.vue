@@ -22,6 +22,7 @@ export default {
 <style lang="scss" scoped>
 .menu {
   display: flex;
+  flex: 3;
   gap: 5rem;
 }
 .mobile {
@@ -31,7 +32,7 @@ export default {
     display: none;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1366px) {
   .menu {
     gap: 2rem;
     &__item {

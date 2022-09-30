@@ -124,7 +124,7 @@ export default {
   padding: 6px 12px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1366px) {
   .courseContainer {
     font-size: 12px;
   }

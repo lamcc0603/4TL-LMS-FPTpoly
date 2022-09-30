@@ -153,7 +153,7 @@ export default {};
   font-size: 1.4rem;
   font-family: "roboto500";
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1366px) {
   .footer {
     max-height: 100%;
     height: 100%;

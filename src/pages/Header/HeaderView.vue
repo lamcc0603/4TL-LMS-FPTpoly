@@ -6,7 +6,7 @@
       </router-link>
     </div>
 
-    <nav-view class="nav" />
+    <NavView class="nav" />
 
     <div class="user__box" v-if="isLogin">
       <div class="user__image" @click="isShow = !isShow">
@@ -32,7 +32,7 @@
           @click="toggleLogin"
           icon="fa-solid fa-right-from-bracket"
           itemTitle="Thoát"
-          itemLink="/chat"
+          itemLink="/home"
         />
       </ul>
     </div>
@@ -67,8 +67,8 @@ export default {
 
 <style lang="scss">
 .header {
-  display: grid;
-  grid-template-columns: 15% 1fr 30%;
+  display: flex;
+
   background: var(--darkest-green);
   padding: 0 5rem;
   max-height: 10rem;
@@ -79,7 +79,7 @@ export default {
     justify-content: center;
     max-width: 20rem;
     height: auto;
-
+    flex: 1;
     & a {
       height: 80%;
       max-height: 10rem;
@@ -128,10 +128,11 @@ export default {
     cursor: pointer;
   }
   &__setting {
+    z-index: 100;
     position: absolute;
     top: 9%;
 
-    display: flex;
+    flex: 1;
     flex-direction: column;
 
     width: 20rem;
@@ -172,10 +173,9 @@ export default {
   text-align: center;
   font-size: 1.4rem;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1366px) {
   .header {
     padding: 0 2rem;
-    grid-template-columns: 15% 1fr 15%;
 
     &__logo {
       margin: auto 0;
