@@ -16,7 +16,7 @@ import HomeView from "@/pages/Home/HomeView.vue";
 import ClientChat from "@/components/Chat/ClientChat.vue";
 
 // Quiz
-import QuizDetail from "@/components/QuizDetail.vue";
+import QuizDetailView from "@/components/Quiz/QuizDetailView.vue";
 
 const routes = [
   {
@@ -51,7 +51,7 @@ const routes = [
   {
     path: "/quiz",
     name: "quiz",
-    component: QuizDetail,
+    component: QuizDetailView,
   },
 ];
 
