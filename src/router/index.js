@@ -1,33 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// About
-import AboutView from "@/pages/About/AboutView.vue";
-
-// Login
-import LoginView from "@/components/LoginView.vue";
-
-// Course
-import CourseView from "@/pages/Course/CourseView.vue";
-
-// Home
-import HomeView from "@/pages/Home/HomeView.vue";
-
-// Chat
-import ClientChat from "@/components/Chat/ClientChat.vue";
-
-// Quiz
-import QuizDetailView from "@/components/Quiz/QuizDetailView.vue";
-
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: () => import("@/pages/Home/HomeView.vue"),
+  },
+  {
+    path: "/class",
+    name: "class",
+    component: () => import("@/pages/Class/ClassView.vue"),
   },
   {
     path: "/course",
     name: "course",
-    component: CourseView,
+    component: () => import("@/pages/Course/CourseView.vue"),
   },
   {
     path: "/about",
@@ -35,23 +22,23 @@ const routes = [
     meta: {
       layout: "auth",
     },
-    component: AboutView,
+    component: () => import("@/pages/About/AboutView.vue"),
   },
   {
     path: "/login",
     name: "login",
 
-    component: LoginView,
+    component: () => import("@/components/LoginView.vue"),
   },
   {
     path: "/chat",
     name: "chat",
-    component: ClientChat,
+    component: () => import("@/components/Chat/ClientChat.vue"),
   },
   {
     path: "/quiz",
     name: "quiz",
-    component: QuizDetailView,
+    component: () => import("@/components/Quiz/QuizDetailView.vue"),
   },
 ];
 

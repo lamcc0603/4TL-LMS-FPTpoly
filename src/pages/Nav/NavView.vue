@@ -1,6 +1,7 @@
 <template>
   <ul class="menu">
     <NavItem navLink="/" navTitle="home" />
+    <NavItem navLink="/class" navTitle="class" />
     <NavItem navLink="/course" navTitle="course" />
     <NavItem navLink="/chat" navTitle="chat" />
     <NavItem navLink="/quiz" navTitle="quiz" />
