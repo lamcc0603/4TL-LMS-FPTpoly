@@ -7,7 +7,7 @@ const routes = [
     component: () => import("@/pages/Home/HomeView.vue"),
   },
   {
-    path: "/class",
+    path: "/class/:pathMatch(.*)*",
     name: "class",
     component: () => import("@/pages/Class/ClassView.vue"),
   },

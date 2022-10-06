@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="route" class="class__item">
+  <router-link :to="`/class/${route}`" class="class__item">
     <div class="class__icon">
       <i class="fa-solid fa-book"></i>
     </div>
