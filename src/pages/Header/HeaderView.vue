@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__logo">
-      <router-link to="">
+      <router-link to="/">
         <img src="@/assets/images/logo_fpt.png" alt="logo_fpt" />
       </router-link>
     </div>

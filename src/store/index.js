@@ -1,9 +1,25 @@
+import classAPI from "@/apis/class";
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
+  state() {
+    return {
+      classes: [],
+    };
+  },
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+    setClasses(state, classesPayload) {
+      console.log(classesPayload);
+      state.classes = classesPayload;
+    },
+  },
+  actions: {
+    async fetchClassesById({ commit }, { id }) {
+      const res = await classAPI.getByID(id);
+      const data = await res.data;
+      commit("setClasses", data);
+    },
+  },
   modules: {},
 });

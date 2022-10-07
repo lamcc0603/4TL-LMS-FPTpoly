@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/class/${route}`" class="class__item">
+  <router-link :to="`./${route}`" class="class__item">
     <div class="class__icon">
       <i class="fa-solid fa-book"></i>
     </div>
@@ -15,7 +15,8 @@
 
 <script>
 export default {
-  props: ["title", "sup", "time", "route"],
+  props: ["title", "sup", "time", "route", "folder_tree_id", "parent_tree_id"],
+  setup() {},
 };
 </script>
 
