@@ -14,7 +14,12 @@ const routes = [
   {
     path: "/course",
     name: "course",
-    component: () => import("@/pages/Course/CourseView.vue"),
+    children: [
+      {
+        path: ":id",
+        component: () => import("@/pages/Course/CourseView.vue"),
+      },
+    ],
   },
   {
     path: "/about",

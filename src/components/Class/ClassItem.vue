@@ -1,21 +1,61 @@
 <template>
-  <router-link :to="`./${route}`" class="class__item">
+  <router-link v-if="isClasses" :to="route" class="class__item">
     <div class="class__icon">
       <i class="fa-solid fa-book"></i>
     </div>
     <div class="class__detail">
-      <h3 class="class__detail--title">{{ title }}</h3>
+      <h3 class="class__detail--title">
+        {{ title }}
+      </h3>
       <p class="class__detail--sup">
         {{ sup }}
       </p>
       <p class="class__detail--time">{{ time }}</p>
     </div>
   </router-link>
+
+  <router-link v-else :to="`${route}`" class="class__item">
+    <div class="class__icon">
+      <i class="fa-solid fa-book"></i>
+    </div>
+    <div class="class__detail">
+      <h3 class="class__detail--title">
+        {{ subject }}
+      </h3>
+      <p class="class__detail--sup">
+        {{ teacher }}
+      </p>
+      <p class="class__detail--time">{{ term }}</p>
+    </div>
+  </router-link>
 </template>
 
 <script>
 export default {
-  props: ["title", "sup", "time", "route", "folder_tree_id", "parent_tree_id"],
+  props: {
+    route: {
+      default: null,
+    },
+    title: {
+      default: "",
+    },
+    sup: {
+      default: "",
+    },
+    time: {
+      default: "",
+    },
+    subject: {
+      default: "",
+    },
+    teacher: {
+      default: "",
+    },
+    term: {
+      default: "",
+    },
+    isClasses: {},
+  },
   setup() {},
 };
 </script>

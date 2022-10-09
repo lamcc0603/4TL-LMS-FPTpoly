@@ -6,20 +6,24 @@
       :key="classItem.folder_tree_id"
     >
       <ClassItem
-        @click="handleChangeClass"
+        :isClasses="classItem.folder_tree_id ? true : false"
         :route="
-          classItem.parent_tree_id == 0
-            ? `../class/${classItem.folder_tree_id}`
-            : `${classItem.parent_tree_id}/${classItem.folder_tree_id}`
+          setRouteParent(
+            classItem.parent_tree_id,
+            classItem.folder_tree_id,
+            classItem.id
+          )
         "
         :title="classItem.name"
         :time="classItem.updated_at"
-        :parent_tree_id="classItem.parent_tree_id"
-        :folder_tree_id="classItem.folder_tree_id"
+        :subject="classItem.subject_id"
+        :teacher="classItem.teacher_id"
+        :term="classItem.term"
       >
       </ClassItem>
     </div>
   </div>
+
   <div v-else>Loading classes ............</div>
 </template>
 
@@ -34,18 +38,30 @@ export default {
   setup() {
     const route = useRoute();
     const store = useStore();
+    let isClasses = true;
 
     let param = route.params.pathMatch.toString();
     param = param.replace(",", "/");
+    if (param.includes(",")) {
+      param = param.replace(",", "/");
+    }
 
-    console.log(param);
     store.dispatch("fetchClassesById", { id: param });
-    const classes = computed(() => store.state.classes);
-    const handleChangeClass = () => {
-      let currentUrl = route.params;
-      console.log(currentUrl);
+    const classes = computed(() => {
+      return store.state.classes;
+    });
+
+    const setRouteParent = (parent, folder, id) => {
+      if (parent == 0) {
+        return `class/${folder}`;
+      } else if (parent > 0) {
+        return `${parent}/${folder}`;
+      }
+      if (parent == undefined && folder == undefined) {
+        return `/course/${id}`;
+      }
     };
-    return { classes, handleChangeClass };
+    return { classes, isClasses, setRouteParent };
   },
 };
 </script>
@@ -61,3 +77,6 @@ export default {
   padding-left: 2rem;
 }
 </style>
+
+// ?
+//?`class/${classItem.folder_tree_id}`:`${classItem.parent_tree_id}/${classItem.folder_tree_id}`

@@ -10,7 +10,6 @@ export default createStore({
   getters: {},
   mutations: {
     setClasses(state, classesPayload) {
-      console.log(classesPayload);
       state.classes = classesPayload;
     },
   },
