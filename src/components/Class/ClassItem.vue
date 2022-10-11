@@ -20,10 +20,10 @@
     </div>
     <div class="class__detail">
       <h3 class="class__detail--title">
-        {{ subject }}
+        {{ teacher?.name }}
       </h3>
       <p class="class__detail--sup">
-        {{ teacher }}
+        {{ subject.name }}
       </p>
       <p class="class__detail--time">{{ term }}</p>
     </div>
@@ -90,7 +90,7 @@ export default {
     gap: 1rem;
     &--title {
       font-size: 2.5rem;
-      font-family: "roboto700";
+      font-family: "Segoe UI Bold";
       text-transform: uppercase;
     }
     &--sup,

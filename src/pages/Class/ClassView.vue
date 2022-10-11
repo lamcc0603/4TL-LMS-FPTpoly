@@ -6,7 +6,7 @@
       :key="classItem.folder_tree_id"
     >
       <ClassItem
-        :isClasses="classItem.folder_tree_id ? true : false"
+        :isClasses="classItem?.folder_tree_id ? true : false"
         :route="
           setRouteParent(
             classItem.parent_tree_id,
@@ -14,11 +14,11 @@
             classItem.id
           )
         "
-        :title="classItem.name"
-        :time="classItem.updated_at"
-        :subject="classItem.subject_id"
-        :teacher="classItem.teacher_id"
-        :term="classItem.term"
+        :title="classItem?.name"
+        :time="classItem?.updated_at"
+        :subject="classItem?.subject_id"
+        :teacher="classItem?.teacher_id"
+        :term="classItem?.term"
       >
       </ClassItem>
     </div>

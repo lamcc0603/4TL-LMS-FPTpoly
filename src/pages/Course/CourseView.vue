@@ -97,7 +97,7 @@ export default {
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-  font-family: "roboto400";
+  font-family: "Segoe UI Bold";
   background-color: inherit;
   border: none;
   outline: none;

@@ -174,7 +174,7 @@ export default {
   background: var(--fds-red-55);
 
   color: var(--white);
-  font-family: "roboto500";
+  font-family: "Segoe UI Bold";
   text-align: center;
   font-size: 1.4rem;
 }

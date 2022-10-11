@@ -22,7 +22,7 @@ export default {};
   width: 100%;
   display: flex;
   justify-content: center;
-  font: 16px "roboto500";
+  font: 16px "Segoe UI Bold";
   .loginForm {
     width: 90%;
     padding-bottom: 1vw;

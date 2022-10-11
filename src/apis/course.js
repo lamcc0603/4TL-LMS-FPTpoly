@@ -1,6 +1,6 @@
 import axiosClient from "./axios-client";
-const BASE_URL = " /subjects";
-const quizAPI = {
+const BASE_URL = "course";
+const courseAPI = {
   get: () => {
     const url = `${BASE_URL}`;
     return axiosClient.get(url);
@@ -23,4 +23,4 @@ const quizAPI = {
   },
 };
 
-export default quizAPI;
+export default courseAPI;

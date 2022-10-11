@@ -133,7 +133,7 @@ export default {};
   &__contact {
     & h3 {
       font-size: 2rem;
-      font-family: "roboto500";
+      font-family: "Segoe UI Bold";
       line-height: 30px;
       margin-bottom: 20px;
     }
@@ -158,7 +158,7 @@ export default {};
   padding: 1rem;
   text-align: center;
   font-size: 1.4rem;
-  font-family: "roboto500";
+  font-family: "Segoe UI Bold";
 }
 @media screen and (max-width: 1366px) {
   .footer {
