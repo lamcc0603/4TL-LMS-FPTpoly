@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__logo">
       <router-link to="/">
-        <img src="@/assets/images/logo_fpt.png" alt="logo_fpt" />
+        <img src="@/assets/images/4TL_Logo_png.png" alt="logo_fpt" />
       </router-link>
     </div>
 
@@ -69,20 +69,23 @@ export default {
 .header {
   display: flex;
 
-  background: var(--darkest-green);
-  padding: 0 5rem;
-  max-height: 10rem;
-  margin-bottom: 1rem;
+  background: var(--white);
+  box-shadow: 0px 0px 8px var(--fds-black-alpha-05);
+  padding: 0 50px;
+  max-height: 100px;
+  color: var(--black);
+  margin-bottom: 20px;
+
   &__logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 20rem;
+    max-width: 200px;
     height: auto;
     flex: 1;
     & a {
       height: 80%;
-      max-height: 10rem;
+      max-height: 100px;
       display: block;
     }
     & img {
@@ -97,33 +100,33 @@ export default {
     display: flex;
     flex-direction: row-reverse;
     margin: auto 0;
-    gap: 2rem;
+    gap: 20px;
   }
   &__image {
     position: relative;
     display: flex;
     flex-direction: row-reverse;
-    gap: 1rem;
+    gap: 10px;
 
     overflow: hidden;
     cursor: pointer;
     & img {
-      width: 6rem;
-      height: 6rem;
+      width: 60px;
+      height: 60px;
       border-radius: 100rem;
     }
     &--name {
-      color: var(--white);
+      color: var(--black);
       font-size: 2rem;
       text-align: center;
       text-transform: capitalize;
-      line-height: 6rem;
+      line-height: 60px;
     }
   }
   &__notification {
     margin: auto 0;
     font-size: 2.5rem;
-    color: var(--light-gray);
+    color: var(--fds-gray-30);
     position: relative;
     cursor: pointer;
   }
@@ -132,10 +135,12 @@ export default {
     position: absolute;
     top: 9%;
 
+    border-radius: 14px;
+
     flex: 1;
     flex-direction: column;
 
-    width: 20rem;
+    width: 200px;
 
     font-size: 1.6rem;
 
@@ -147,11 +152,11 @@ export default {
       word-break: break-all;
       cursor: pointer;
       &:last-child {
-        border-top: 2px solid var(--black);
+        border-top: 5px solid var(--bg-color);
       }
     }
     &--link {
-      padding: 1.3rem 2rem;
+      padding: 13px 20px;
       display: block;
     }
   }
@@ -162,11 +167,11 @@ export default {
   top: -30%;
   right: -40%;
 
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
   border-radius: 100rem;
-  line-height: 2rem;
-  background: var(--notification);
+  line-height: 20px;
+  background: var(--fds-red-55);
 
   color: var(--white);
   font-family: "roboto500";
@@ -175,11 +180,11 @@ export default {
 }
 @media screen and (max-width: 1366px) {
   .header {
-    padding: 0 2rem;
+    padding: 0 20px;
 
     &__logo {
       margin: auto 0;
-      max-width: 10rem;
+      max-width: 100px;
       height: 100%;
     }
   }
@@ -204,9 +209,10 @@ export default {
 }
 @media screen and (max-width: 767.98px) {
   .header {
-    padding: 0 1rem;
+    padding: 0 10px;
     grid-template-columns: 10% 1fr 30%;
-    height: 10rem;
+    height: 100px;
+    margin-bottom: 20px;
     &__logo {
       max-width: 100%;
       order: 2;
@@ -216,9 +222,6 @@ export default {
   .btn__login {
     margin-left: 0;
     order: 3;
-    // display: none;
-    // opacity: 0;
-    // visibility: hidden;
   }
   .header .nav {
     order: 1;

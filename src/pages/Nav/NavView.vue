@@ -2,9 +2,7 @@
   <ul class="menu">
     <NavItem navLink="/" navTitle="home" />
     <NavItem navLink="/class" navTitle="class" />
-    <NavItem navLink="/course" navTitle="course" />
     <NavItem navLink="/chat" navTitle="chat" />
-    <NavItem navLink="/quiz" navTitle="quiz" />
     <NavItem navLink="/about" navTitle="about" />
   </ul>
   <div class="mobile__menu">
@@ -24,7 +22,7 @@ export default {
 .menu {
   display: flex;
   flex: 3;
-  gap: 5rem;
+  gap: 50px;
 }
 .mobile {
   &__menu {
@@ -35,7 +33,7 @@ export default {
 }
 @media screen and (max-width: 1366px) {
   .menu {
-    gap: 2rem;
+    gap: 20px;
     &__item {
       padding: 0;
     }
@@ -53,10 +51,10 @@ export default {
       visibility: visible;
       opacity: 1;
       display: block;
-      color: var(--white);
       font-size: 3rem;
+      color: var(--black);
       text-align: center;
-      line-height: 10rem;
+      line-height: 100px;
     }
   }
 }

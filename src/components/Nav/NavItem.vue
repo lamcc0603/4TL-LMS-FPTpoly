@@ -22,10 +22,10 @@ export default {
 <style lang="scss" scoped>
 .menu {
   &__item {
-    padding: 0 2rem;
+    padding: 0 20px;
     text-align: center;
-    line-height: 9.8rem;
-    color: var(--white);
+    line-height: 98px;
+    color: var(--black);
     text-transform: capitalize;
     font-weight: 800;
     font-size: 2rem;

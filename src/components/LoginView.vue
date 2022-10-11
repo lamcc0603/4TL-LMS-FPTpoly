@@ -20,50 +20,50 @@ export default {};
 .LoginContainer {
   padding: 10vw;
   width: 100%;
-  background-color: #d9d9d9;
   display: flex;
   justify-content: center;
-  font: 16px sans-serif;
+  font: 16px "roboto500";
   .loginForm {
-    width: 30%;
+    width: 90%;
     padding-bottom: 1vw;
-    background: #52796f;
-    border-radius: 15px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0px 0px 8px var(--fds-black-alpha-10);
     .login {
       display: flex;
       flex-direction: column;
       // align-items: center;
       h1 {
         font-size: 2em;
-        color: white;
+        color: var(--black);
         text-align: center;
         margin: 1vw;
       }
       label {
         margin-left: 2.3vw;
         font-size: 1em;
-        color: white;
+        color: var(--black);
       }
       input {
         width: 80%;
-        background: #cad2c5;
+        background: var(--fds-gray-05);
         border: none;
         padding: 5px;
         margin: 10px auto;
-        border-radius: 3px;
+        border-radius: 37px;
       }
       .loginBtn {
         width: 30%;
         height: 2vw;
         margin: 20px auto;
-        background: #cad2c5;
+        background: var(--white);
         border: none;
         font-size: 0.8em;
         cursor: pointer;
       }
       .loginBtn:hover {
         background: #84a98c;
-        color: white;
+        color: var(--black);
       }
     }
   }

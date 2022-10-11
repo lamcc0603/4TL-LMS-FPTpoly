@@ -5,9 +5,9 @@
   --dark-green: #354f52;
   --darkest-green: #2f3e46;
   --white: #fff;
-  --black: #000;
+  --black: #050505;
   --notification: #fd4339;
-
+  --bg-color: #f0f2f5;
   /* chat */
   --chat-boder: #e5e5e5;
   --chat-box-item: #ffffff;
@@ -17,6 +17,35 @@
   --btn-send-message: #84a98c;
 
   /* scroll */
-  --scroll-background: #cfcfcf;
+  --scroll-background: #c0c0c0;
   --scroll-color: #ececec;
+  --fds-black: #000000;
+  --fds-black-alpha-05: rgba(0, 0, 0, 0.05);
+  --fds-black-alpha-10: rgba(0, 0, 0, 0.1);
+  --fds-black-alpha-15: rgba(0, 0, 0, 0.15);
+  --fds-black-alpha-20: rgba(0, 0, 0, 0.2);
+  --fds-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --fds-black-alpha-40: rgba(0, 0, 0, 0.4);
+  --fds-black-alpha-50: rgba(0, 0, 0, 0.5);
+  --fds-black-alpha-60: rgba(0, 0, 0, 0.6);
+  --fds-black-alpha-80: rgba(0, 0, 0, 0.8);
+  --fds-blue-05: #ecf3ff;
+  --fds-blue-30: #aac9ff;
+  --fds-blue-40: #77a7ff;
+  --fds-blue-60: #1877f2;
+  --fds-blue-70: #2851a3;
+  --fds-blue-80: #1d3c78;
+
+  --fds-gray-00: #f5f6f7;
+  --fds-gray-05: #f2f3f5;
+  --fds-gray-10: #ebedf0;
+  --fds-gray-20: #dadde1;
+  --fds-gray-25: #ccd0d5;
+  --fds-gray-30: #bec3c9;
+  --fds-gray-45: #8d949e;
+  --fds-gray-70: #606770;
+  --fds-gray-80: #444950;
+  --fds-gray-90: #303338;
+
+  --fds-red-55: #fa383e;
 }

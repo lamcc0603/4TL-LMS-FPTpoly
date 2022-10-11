@@ -25,4 +25,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.user__setting--link i {
+  color: var(--fds-gray-30);
+  margin-right: 20px;
+}
+</style>

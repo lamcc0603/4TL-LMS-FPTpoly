@@ -64,12 +64,14 @@ export default {
 .class {
   &__item {
     display: flex;
-    max-width: 60rem;
+    max-width: 600px;
     height: auto;
-    padding: 1.5rem;
-    background: var(--medium-green);
-    border-radius: 14px;
+    padding: 15px;
+    background: var(--white);
     color: var(--black);
+    border-radius: 14px;
+    box-shadow: 2px 2px 5px 0px var(--fds-black-alpha-05);
+    border-radius: 14px;
   }
   &__icon {
     flex: 1;
@@ -78,10 +80,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--fds-blue-60);
   }
   &__detail {
     flex: 4;
-    margin-left: 2rem;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
     gap: 1rem;

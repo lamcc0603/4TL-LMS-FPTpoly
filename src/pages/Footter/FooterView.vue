@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__logo">
       <router-link to="/">
-        <img src="@/assets/images/logo_fpt.png" alt="logo_fpt" />
+        <img src="@/assets/images/4TL_Logo_png.png" alt="logo_fpt" />
       </router-link>
     </div>
     <!-- <div class="footer__about"></div> -->
@@ -107,19 +107,21 @@ export default {};
 
 <style scoped lang="scss">
 .footer {
-  max-height: 30rem;
-  height: 30rem;
-  background: var(--darkest-green);
+  max-height: 300px;
+  height: 300px;
+  background: var(--white);
+  color: var(--black);
   display: grid;
-  grid-template-columns: 30rem repeat(3, 1fr);
+  grid-template-columns: 300px repeat(3, 1fr);
   gap: 3rem;
-  padding: 5rem 5rem 3rem 5rem;
-  margin-top: 1rem;
+  padding: 50px 50px 3rem 50px;
+  box-shadow: 0px -3px 8px var(--fds-black-alpha-05);
+  margin-top: 20px;
   &__logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 20rem;
+    max-width: 200px;
     height: auto;
   }
   &__about {
@@ -129,11 +131,11 @@ export default {};
     background: red;
   }
   &__contact {
-    color: var(--white);
     & h3 {
       font-size: 2rem;
       font-family: "roboto500";
-      line-height: 3rem;
+      line-height: 30px;
+      margin-bottom: 20px;
     }
   }
 }
@@ -142,14 +144,19 @@ export default {};
     font-size: 1.6rem;
     line-height: 1.5;
   }
+  &__link {
+    & i {
+      color: var(--fds-gray-30);
+      margin-right: 10px;
+    }
+  }
 }
 
 .copyright {
-  background: var(--darkest-green);
-  border-top: 0.2rem solid var(--white);
+  background: var(--white);
+  border-top: 5px solid var(--bg-color);
   padding: 1rem;
   text-align: center;
-  color: var(--white);
   font-size: 1.4rem;
   font-family: "roboto500";
 }
@@ -159,7 +166,7 @@ export default {};
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 10px;
     &__logo {
       margin: 0 auto;
     }

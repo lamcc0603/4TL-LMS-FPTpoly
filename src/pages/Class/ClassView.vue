@@ -69,14 +69,10 @@ export default {
 <style lang="scss" scoped>
 .class {
   width: 100%;
-  background: #d9d9d9;
-  font-size: 16px;
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding-left: 2rem;
+  gap: 20px;
+  padding: 10px 10px 15% 20px;
 }
 </style>
-
-// ?
-//?`class/${classItem.folder_tree_id}`:`${classItem.parent_tree_id}/${classItem.folder_tree_id}`

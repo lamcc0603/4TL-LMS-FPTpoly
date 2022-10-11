@@ -1,37 +1,35 @@
 <template>
-  <div class="courseContainer">
-    <div class="courseBox">
-      <div class="course">
-        <div class="tab">
-          <button class="tablinks" @click="openTab($event, '{{tab1}}')">
-            {{ tab1 }}
-          </button>
-          <button class="tablinks" @click="openTab($event, '{{tab2}}')">
-            {{ tab2 }}
-          </button>
-          <button class="tablinks" @click="openTab($event, '{{tab3}}')">
-            {{ tab3 }}
-          </button>
-        </div>
-
-        <!-- Tab content -->
-        <div id="{{tab1}}" class="tabcontent">
-          <h3>London</h3>
-          <p>London is the capital city of England.</p>
-        </div>
-
-        <div id="{{tab2}}" class="tabcontent">
-          <h3>Paris</h3>
-          <p>Paris is the capital of France.</p>
-        </div>
-
-        <div id="{{tab3}}" class="tabcontent">
-          <h3>Tokyo</h3>
-          <p>Tokyo is the capital of Japan.</p>
-        </div>
+  <div class="courseBox">
+    <div class="course">
+      <div class="tab">
+        <button class="tablinks" @click="openTab($event, '{{tab1}}')">
+          {{ tab1 }}
+        </button>
+        <button class="tablinks" @click="openTab($event, '{{tab2}}')">
+          {{ tab2 }}
+        </button>
+        <button class="tablinks" @click="openTab($event, '{{tab3}}')">
+          {{ tab3 }}
+        </button>
       </div>
-      <div class="asside"></div>
+
+      <!-- Tab content -->
+      <div id="{{tab1}}" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+      </div>
+
+      <div id="{{tab2}}" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+      </div>
+
+      <div id="{{tab3}}" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
     </div>
+    <div class="asside"></div>
   </div>
 </template>
 <script>
@@ -69,53 +67,53 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.courseContainer {
-  width: 100%;
-  background: #d9d9d9;
-  padding: 1vw;
+.courseBox {
   font-size: 16px;
-  .courseBox {
-    background: #d9d9d9;
-    width: 100%;
-    height: 1000px;
-    display: flex;
-    .course {
-      flex: 3;
-      background: white;
-      margin-right: 1vw;
-    }
-    .asside {
-      flex: 1;
-      background: white;
-    }
+  width: 100%;
+  height: 1000px;
+
+  display: flex;
+  .course {
+    flex: 3;
+    background: white;
+    margin-right: 1vw;
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px var(--fds-black-alpha-05);
+  }
+  .asside {
+    flex: 1;
+    background: white;
+    border-radius: 7px;
+    box-shadow: 0px 0px 8px var(--fds-black-alpha-05);
   }
 }
+
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border-bottom: 1px solid #ccc;
-  background-color: white;
+  border-bottom: 7px solid var(--bg-color);
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
+  font-family: "roboto400";
   background-color: inherit;
-  float: left;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 1.5vw;
-  font-size: 1em;
+  font-size: 1.3em;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: var(--fds-blue-05);
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: var(--fds-blue-30);
 }
 
 /* Style the tab content */
@@ -125,12 +123,12 @@ export default {
 }
 
 @media screen and (max-width: 1366px) {
-  .courseContainer {
+  .courseBox {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 767.98px) {
-  .courseContainer {
+  .courseBox {
     font-size: 10px;
   }
 }
