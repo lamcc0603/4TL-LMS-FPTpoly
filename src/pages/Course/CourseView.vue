@@ -18,6 +18,7 @@
 
       <!-- Tab content -->
       <div id="{{tab1}}" class="tabcontent">
+        Hiện tab mặc định (nhớ xóa)
         <div v-for="documentItem of course.listDocument" :key="documentItem.id">
           <h3>{{ documentItem.title }}</h3>
           <p>{{ documentItem.content }}</p>
@@ -34,7 +35,7 @@
         <p>Tokyo is the capital of Japan.</p>
       </div>
       <div id="{{tab4}}" class="tabcontent">
-        <h3>Tokyo</h3>
+        <h3>Quiz 3</h3>
         <p>Tokyo is the capital of Japan.</p>
       </div>
     </div>
@@ -71,7 +72,6 @@ export default {
 
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
-        tabcontent[0].style.display = "block";
       }
 
       // Get all elements with class="tablinks" and remove the class "active"
@@ -140,9 +140,14 @@ export default {
 }
 
 /* Style the tab content */
+
 .tabcontent {
   display: none;
   padding: 6px 12px;
+}
+
+.tab + .tabcontent {
+  display: block;
 }
 
 @media screen and (max-width: 1366px) {
