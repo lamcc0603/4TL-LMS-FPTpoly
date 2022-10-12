@@ -330,6 +330,7 @@ iframe {
   .wrap-login100 {
     padding: 177px 90px 177px 85px;
     width: 95%;
+    display: flex;
   }
   .login100-pic {
     width: 35%;
