@@ -7,6 +7,7 @@ export default createStore({
     return {
       classes: [],
       courses: [],
+      user: { id: 1, name: "Chí Lâm" },
     };
   },
   getters: {},

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap-login100">
+  <div class="wrap-login100 container">
     <div
       class="login100-pic js-tilt"
       data-tilt=""
@@ -17,6 +17,7 @@
         data-validate="Valid email is required: ex@abc.xyz"
       >
         <input
+          required
           class="input100"
           type="text"
           name="username"
@@ -32,6 +33,7 @@
         data-validate="Password is required"
       >
         <input
+          required
           class="input100"
           type="password"
           name="pass"
@@ -76,7 +78,7 @@ a:focus {
 }
 a:hover {
   text-decoration: none;
-  color: #57b846;
+  color: var(--fds-blue-40);
 }
 h1,
 h2,
@@ -182,45 +184,40 @@ iframe {
   width: 100%;
   margin: 0 auto;
 }
-.container-login100 {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+.container {
+  position: relative;
+  &::before {
+    content: "";
+    width: 400px;
+    height: 400px;
+    background: var(--fds-blue-80);
+    position: absolute;
+    border-radius: 100rem;
+    top: -30%;
+    left: -10%;
+    filter: blur(20rem);
+  }
 }
 .wrap-login100 {
-  width: 960px;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 100px auto;
-  justify-content: space-between;
-  padding: 177px 130px 177px 95px;
-  box-shadow: 3px 3px 40px 3px;
+  background: transparent;
+  display: grid;
+  grid-template-columns: 30% 550px;
+  margin: 200px auto;
 }
 .login100-pic {
-  width: 316px;
+  width: 100%;
 }
 .login100-pic img {
   max-width: 100%;
 }
 .login100-form {
-  width: 290px;
+  width: 100%;
+  max-width: 550px;
 }
 .login100-form-title {
-  font-family: "Segoe UI Regular";
-  font-size: 24px;
-  color: #333;
+  font-size: 50px;
+  font-family: "Segoe UI Bold";
+  color: var(--fds-blue-60);
   line-height: 1.2;
   text-align: center;
   width: 100%;
@@ -235,14 +232,13 @@ iframe {
 }
 .input100 {
   font-family: "Segoe UI Regular";
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.5;
-  color: #666;
+  background: var(--white);
   display: block;
   width: 100%;
-  background: #e6e6e6;
   height: 50px;
-  border-radius: 25px;
+  border-radius: 7px;
   padding: 0 30px 0 68px;
 }
 .focus-input100 {
@@ -255,7 +251,7 @@ iframe {
   width: 100%;
   height: 100%;
   box-shadow: 0 0;
-  color: rgba(87, 184, 70, 0.8);
+  color: var(--fds-blue-40);
 }
 
 .input100:focus + .focus-input100 {
@@ -294,7 +290,8 @@ iframe {
   transition: all 0.4s;
 }
 .input100:focus + .focus-input100 + .symbol-input100 {
-  color: #57b846;
+  color: var(--fds-blue-40);
+
   padding-left: 28px;
 }
 .container-login100-form-btn {
@@ -316,7 +313,7 @@ iframe {
   width: 100%;
   height: 50px;
   border-radius: 25px;
-  background: #57b846;
+  background: var(--fds-blue-30);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -327,7 +324,7 @@ iframe {
   transition: all 0.4s;
 }
 .login100-form-btn:hover {
-  background: #333;
+  background: var(--fds-blue-60);
 }
 @media (max-width: 992px) {
   .wrap-login100 {
