@@ -60,10 +60,8 @@ export default {};
 body,
 html {
   height: 100%;
-  font-family: Poppins-Regular, sans-serif;
 }
 a {
-  font-family: Poppins-Regular;
   font-size: 14px;
   line-height: 1.7;
   color: #666;
@@ -220,6 +218,7 @@ iframe {
   width: 290px;
 }
 .login100-form-title {
+  font-family: "Segoe UI Regular";
   font-size: 24px;
   color: #333;
   line-height: 1.2;
@@ -235,6 +234,7 @@ iframe {
   margin-bottom: 10px;
 }
 .input100 {
+  font-family: "Segoe UI Regular";
   font-size: 15px;
   line-height: 1.5;
   color: #666;
@@ -331,7 +331,8 @@ iframe {
 }
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
+    padding: 177px 90px 177px 85px;
+    width: 95%;
   }
   .login100-pic {
     width: 35%;
@@ -342,7 +343,7 @@ iframe {
 }
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 100px 80px 33px;
+    padding: 100px 80px 100px;
     width: 90%;
   }
   .login100-pic {
