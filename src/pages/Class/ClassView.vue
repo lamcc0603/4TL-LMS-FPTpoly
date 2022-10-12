@@ -1,5 +1,5 @@
 <template>
-  <div class="class" v-if="classes">
+  <div class="class" v-if="!isLoading">
     <div
       class="class__item"
       v-for="classItem of classes"
@@ -38,7 +38,7 @@ export default {
   setup() {
     const route = useRoute();
     const store = useStore();
-    let isClasses = true;
+    const isLoading = computed(() => store.state.isLoading);
 
     let param = route.params.pathMatch.toString();
     param = param.replace(",", "/");
@@ -61,7 +61,7 @@ export default {
         return `/course/${id}`;
       }
     };
-    return { classes, isClasses, setRouteParent };
+    return { classes, isLoading, setRouteParent };
   },
 };
 </script>

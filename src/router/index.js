@@ -55,4 +55,9 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  document.title = `4tl-${to.name}`;
+  next();
+});
+
 export default router;

@@ -20,10 +20,13 @@ export default createStore({
   },
   actions: {
     async fetchClassesById({ commit }, { id }) {
-      const res = await classAPI.getByID(id);
-      const data = await res.data;
-      console.log(data);
-      commit("setClasses", data);
+      try {
+        const res = await classAPI.getByID(id);
+        const data = await res.data;
+        commit("setClasses", data);
+      } catch (err) {
+        console.log(err);
+      }
     },
     async fetchCoursesBySubjectId({ commit }, { id }) {
       const res = await courseAPI.getByID(id);
