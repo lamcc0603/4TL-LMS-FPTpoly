@@ -17,7 +17,7 @@ export default {};
 .sendChat {
   margin-top: 2rem;
   display: flex;
-  border-radius: 10px;
+  border-radius: 30px;
   overflow: hidden;
   &__input {
     width: 100%;

@@ -28,13 +28,14 @@ export default {
 <style lang="scss" scoped>
 .ListMessages {
   display: flex;
-  height: 70vh;
+  height: 60vh;
   overflow: auto;
   padding: 0 2rem;
   flex-direction: column-reverse;
-  &__InputChat {
+  &_InputChat {
     padding: 1.5rem;
     position: absolute;
+    margin: auto;
     bottom: 0;
     right: 0;
     left: 0;

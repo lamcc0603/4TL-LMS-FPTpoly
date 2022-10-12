@@ -8,13 +8,18 @@
   --black: #050505;
   --notification: #fd4339;
   --bg-color: #f0f2f5;
+
+  /* nav */
+  --nav-color: #2f2d2d;
+
   /* chat */
   --chat-boder: #e5e5e5;
   --chat-box-item: #ffffff;
   --chat-box-item-hover: #e8e8e8;
   --message-other: #e3e3e3;
-  --message-self: #84a98c;
-  --btn-send-message: #84a98c;
+  --message-self: #0084ff;
+  --btn-send-message: #0084ff;
+  --chat-bg: var(--white);
 
   /* scroll */
   --scroll-background: #c0c0c0;

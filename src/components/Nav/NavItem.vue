@@ -1,6 +1,6 @@
 <template>
   <li class="menu__item">
-    <router-link class="menu__item" :to="navLink">{{ navTitle }}</router-link>
+    <router-link :to="navLink">{{ navTitle }}</router-link>
   </li>
 </template>
 
@@ -22,13 +22,13 @@ export default {
 <style lang="scss" scoped>
 .menu {
   &__item {
-    padding: 0 20px;
+    padding: 30px 30px;
     text-align: center;
-    line-height: 98px;
-    color: var(--black);
+    // line-height: 98px;
+    color: var(--nav-color);
     text-transform: capitalize;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 18px;
   }
   &__link {
     text-decoration: none;

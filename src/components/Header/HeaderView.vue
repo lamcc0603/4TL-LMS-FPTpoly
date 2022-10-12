@@ -9,8 +9,8 @@
     <NavView class="nav" />
 
     <div class="user__box" v-if="isLogin">
-      <div class="user__image" @click="isShow = !isShow">
-        <img src="@/assets/images/user1.jpg" alt="" />
+      <div class="user__image center" @click="isShow = !isShow">
+        <img src="@/assets/images/user.png" alt="" />
         <p class="user__image--name">Chung chí lâm</p>
       </div>
       <div class="user__notification">
@@ -36,24 +36,18 @@
         />
       </ul>
     </div>
-
-    <div class="btn__login" v-else>
-      <router-link @click="toggleLogin" class="btn__login--text" to="login"
-        >Đăng nhập</router-link
-      >
-    </div>
   </header>
 </template>
 
 <script>
-import NavView from "@/pages/Nav/NavView.vue";
+import NavView from "@/components/Nav/NavView.vue";
 import UserSettingItem from "@/components/Header/UserSettingItem.vue";
 import { ref } from "@vue/runtime-core";
 
 export default {
   components: { NavView, UserSettingItem },
   setup() {
-    const isLogin = ref(false);
+    const isLogin = ref(true);
     const isShow = ref(false);
 
     const toggleLogin = () => {
@@ -89,7 +83,7 @@ export default {
       display: block;
     }
     & img {
-      width: 100%;
+      width: 150px;
       height: 100%;
       object-fit: contain;
     }
@@ -97,13 +91,14 @@ export default {
 }
 .header .user {
   &__box {
+    position: relative;
     display: flex;
     flex-direction: row-reverse;
     margin: auto 0;
     gap: 20px;
   }
   &__image {
-    position: relative;
+    // position: relative;
     display: flex;
     flex-direction: row-reverse;
     gap: 10px;
@@ -111,16 +106,15 @@ export default {
     overflow: hidden;
     cursor: pointer;
     & img {
-      width: 60px;
-      height: 60px;
-      border-radius: 100rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
     &--name {
       color: var(--black);
-      font-size: 2rem;
+      font-size: 18px;
       text-align: center;
       text-transform: capitalize;
-      line-height: 60px;
     }
   }
   &__notification {
@@ -131,22 +125,20 @@ export default {
     cursor: pointer;
   }
   &__setting {
-    z-index: 100;
     position: absolute;
-    top: 9%;
+    top: 130%;
+    right: 0;
 
-    border-radius: 14px;
+    z-index: 5;
+    box-shadow: 0px 3px 8px var(--fds-black-alpha-10);
+    border-radius: 7px;
 
     flex: 1;
     flex-direction: column;
-
     width: 200px;
-
     font-size: 1.6rem;
-
     background: var(--white);
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
     &--item {
       display: block;
       word-break: break-all;

@@ -97,8 +97,8 @@
       </ul>
     </div>
     <!-- <div class="footer__direct"></div> -->
+    <!-- <div class="copyright">Hệ thống quản lý học tập do nhóm 4TL thực hiện</div> -->
   </footer>
-  <div class="copyright">Hệ thống quản lý học tập do nhóm 4TL thực hiện</div>
 </template>
 
 <script>

@@ -33,7 +33,9 @@
   src: local("Segoe UI Bold Italic"),
     url("../fonts/segoe/Segoe UI Bold Italic.woff") format("woff");
 }
-
+html {
+  position: relative;
+}
 body {
   font-family: "Segoe UI Regular";
   font-size: 18px;
@@ -54,7 +56,13 @@ body {
   width: 100%;
   margin: 0 auto;
   max-width: 1366px;
-  min-height: 1000px;
+  // min-height: 1000px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ::-webkit-scrollbar {

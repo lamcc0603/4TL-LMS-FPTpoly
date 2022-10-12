@@ -73,6 +73,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 10px 10px 15% 20px;
+  // padding: 10px 10px 15% 20px;
 }
 </style>

@@ -1,17 +1,25 @@
 <template>
-  <header-view />
+  <HeaderView />
   <div class="container">
-    <slot :key="$route.path" />
+    <div class="content">
+      <slot :key="$route.path" />
+    </div>
   </div>
-  <footer-view />
+  <FooterView />
 </template>
 
 <script>
-import HeaderView from "@/pages/Header/HeaderView.vue";
-import FooterView from "@/pages/Footter/FooterView.vue";
+import HeaderView from "@/components/Header/HeaderView.vue";
+import FooterView from "@/components/Footter/FooterView.vue";
 export default {
   components: { HeaderView, FooterView },
 
   setup() {},
 };
 </script>
+<style scoped lang="scss">
+.content {
+  height: 100%;
+  min-height: calc(100vh - 418px);
+}
+</style>

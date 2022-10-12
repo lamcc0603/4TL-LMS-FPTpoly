@@ -9,6 +9,8 @@
     <ItemChat />
     <ItemChat />
     <ItemChat />
+    <ItemChat />
+    <ItemChat />
   </div>
 </template>
 <script>

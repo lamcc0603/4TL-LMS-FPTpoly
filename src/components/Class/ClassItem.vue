@@ -89,7 +89,7 @@ export default {
     flex-direction: column;
     gap: 1rem;
     &--title {
-      font-size: 2.5rem;
+      font-size: 18px;
       font-family: "Segoe UI Bold";
       text-transform: uppercase;
     }
