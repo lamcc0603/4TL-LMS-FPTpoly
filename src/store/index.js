@@ -6,7 +6,7 @@ export default createStore({
   state() {
     return {
       classes: [],
-      courses: [],
+      course: {},
       user: { id: 1, name: "Chí Lâm" },
     };
   },
@@ -15,8 +15,8 @@ export default createStore({
     setClasses(state, classesPayload) {
       state.classes = classesPayload;
     },
-    setCourses(state, coursesPayload) {
-      state.courses = coursesPayload;
+    setCourse(state, coursePayload) {
+      state.course = coursePayload;
     },
   },
   actions: {
@@ -29,10 +29,14 @@ export default createStore({
         console.log(err);
       }
     },
-    async fetchCoursesBySubjectId({ commit }, { id }) {
-      const res = await courseAPI.getByID(id);
-      const data = await res.data;
-      commit("setCourses", data);
+    async fetchCourseBySubjectId({ commit }, { id }) {
+      try {
+        const res = await courseAPI.getByID(id);
+        const data = await res.data;
+        commit("setCourse", data);
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
   modules: {},

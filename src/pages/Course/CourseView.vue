@@ -11,12 +11,17 @@
         <button class="tablinks" @click="openTab($event, '{{tab3}}')">
           {{ tab3 }}
         </button>
+        <button class="tablinks" @click="openTab($event, '{{tab4}}')">
+          {{ tab4 }}
+        </button>
       </div>
 
       <!-- Tab content -->
       <div id="{{tab1}}" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
+        <div v-for="documentItem of course.listDocument" :key="documentItem.id">
+          <h3>{{ documentItem.title }}</h3>
+          <p>{{ documentItem.content }}</p>
+        </div>
       </div>
 
       <div id="{{tab2}}" class="tabcontent">
@@ -28,28 +33,45 @@
         <h3>Tokyo</h3>
         <p>Tokyo is the capital of Japan.</p>
       </div>
+      <div id="{{tab4}}" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
     </div>
     <div class="asside"></div>
   </div>
 </template>
 <script>
-import { ref } from "@vue/runtime-core";
+import { computed, ref } from "@vue/runtime-core";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   setup() {
-    const tab1 = ref("Tab1");
-    const tab2 = ref("Tab2");
-    const tab3 = ref("Quiz");
-    const tab4 = ref("Lab");
+    const tab1 = ref("Tài liệu");
+    const tab2 = ref("Lab");
+    const tab3 = ref("Assignment");
+    const tab4 = ref("Quiz");
+
+    const route = useRoute();
+    const store = useStore();
+
+    let courseId = Number(route.params.id);
+    store.dispatch("fetchCourseBySubjectId", { id: courseId });
+    let course = computed(() => {
+      return store.state.course;
+    });
+    course = course.value;
 
     const openTab = (evt, tabName) => {
       // Declare all variables
       let i, tabcontent, tablinks;
-
       // Get all elements with class="tabcontent" and hide them
       tabcontent = document.getElementsByClassName("tabcontent");
+
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
+        tabcontent[0].style.display = "block";
       }
 
       // Get all elements with class="tablinks" and remove the class "active"
@@ -62,7 +84,8 @@ export default {
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
     };
-    return { tab1, tab2, tab3, tab4, openTab };
+
+    return { tab1, tab2, tab3, tab4, openTab, course };
   },
 };
 </script>
