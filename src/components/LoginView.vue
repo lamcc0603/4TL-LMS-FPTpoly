@@ -45,6 +45,7 @@
 export default {};
 </script>
 <style scoped lang="scss">
+@import "@/assets/styles/_mixins.scss";
 .authDescription {
   grid-column: 1/3;
   margin: auto 0;
@@ -147,13 +148,21 @@ hr {
     }
   }
 }
-
-@media (max-width: 992px) {
+@include mobile {
+  .authDescription {
+    display: none;
+  }
   .auth {
-    padding: 177px 15px 177px 15px;
-    width: 95%;
+    padding: 0 1rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+@include tablet {
+  .auth {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
