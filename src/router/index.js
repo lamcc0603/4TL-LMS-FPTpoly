@@ -31,7 +31,7 @@ const routes = [
   },
   {
     path: "/login",
-    name: "login",
+    name: " Xác thực người dùng",
     meta: {
       layout: "auth",
     },

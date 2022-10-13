@@ -1,9 +1,4 @@
 :root {
-  --light-gray: #cad2c5;
-  --light-green: #84a98c;
-  --medium-green: #52796f;
-  --dark-green: #354f52;
-  --darkest-green: #2f3e46;
   --white: #fff;
   --black: #050505;
   --notification: #fd4339;
@@ -40,7 +35,7 @@
   --fds-blue-60: #1877f2;
   --fds-blue-70: #2851a3;
   --fds-blue-80: #1d3c78;
-
+  --fds-blue-100: #1b74e4;
   --fds-gray-00: #f5f6f7;
   --fds-gray-05: #f2f3f5;
   --fds-gray-10: #ebedf0;
