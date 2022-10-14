@@ -10,11 +10,9 @@ export default {
   props: {
     title: {
       require,
-      Type: String,
     },
     deadline: {
       require,
-      Type: Date,
     },
   },
 };

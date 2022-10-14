@@ -1,6 +1,8 @@
 <template>
   <component :is="layout">
-    <router-view />
+    <transition name="route" mode="out-in" appear>
+      <router-view />
+    </transition>
   </component>
 </template>
 
@@ -18,3 +20,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.route-enter-active,
+.route-leave-active {
+  transition: all 1s ease-in-out;
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+</style>

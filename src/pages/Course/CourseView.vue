@@ -18,7 +18,7 @@
 
       <!-- Tab content -->
       <div id="{{tab1}}" class="tabcontent">
-        <div v-if="!course.listDocument">Loading document.....</div>
+        <div v-if="!course.listDocument.length">Loading document.....</div>
         <template v-else>
           <div
             v-for="documentItem in course.listDocument"
@@ -31,7 +31,7 @@
       </div>
 
       <div id="{{tab2}}" class="tabcontent">
-        <div v-if="!course.listLabs">Loading Labs.....</div>
+        <div v-if="!course.listLabs.length">Loading Labs.....</div>
         <div v-else>
           <h3>Paris</h3>
           <p>Paris is the capital of France.</p>
@@ -169,6 +169,10 @@ onMounted(() => {
   & p {
     font-size: 15px;
     line-height: 1.3333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border-bottom: 4px solid var(--fds-gray-05);
   }
 }
 

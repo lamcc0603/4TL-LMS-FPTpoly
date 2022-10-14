@@ -1,5 +1,13 @@
 <template>
-  <div v-if="!classes">Loading classes ............</div>
+  <div v-if="!classes.length">
+    <div class="class">
+      <ClassSkeleton />
+      <ClassSkeleton />
+      <ClassSkeleton />
+      <ClassSkeleton />
+    </div>
+  </div>
+
   <div class="class" v-else>
     <div
       class="class__item"
@@ -31,9 +39,10 @@ import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import ClassItem from "@/components/Class/ClassItem.vue";
+import ClassSkeleton from "@/components/Class/ClassSkeleton.vue";
 
 export default {
-  components: { ClassItem },
+  components: { ClassItem, ClassSkeleton },
   setup() {
     const route = useRoute();
     const store = useStore();

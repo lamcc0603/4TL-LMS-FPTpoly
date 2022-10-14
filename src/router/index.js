@@ -16,6 +16,7 @@ const routes = [
     name: "course",
     children: [
       {
+        name: `course`,
         path: ":id",
         component: () => import("@/pages/Course/CourseView.vue"),
       },
