@@ -28,6 +28,7 @@
         :subject="classItem?.subject_id"
         :teacher="classItem?.teacher_id"
         :term="classItem?.term"
+        :classes="classItem?.class_id"
       >
       </ClassItem>
     </div>
@@ -57,7 +58,7 @@ export default {
     const classes = computed(() => {
       return store.state.classes;
     });
-
+    console.log(classes.value);
     const setRouteParent = (parent, folder, id) => {
       if (parent == 0) {
         return `class/${folder}`;

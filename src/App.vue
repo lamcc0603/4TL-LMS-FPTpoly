@@ -24,14 +24,12 @@ export default {
 <style lang="scss">
 .route-enter-from {
   opacity: 0;
-  transform: translateX(-100px);
 }
 .route-enter-active,
 .route-leave-active {
-  transition: all 1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .route-leave-to {
   opacity: 0;
-  transform: translateX(-100px);
 }
 </style>

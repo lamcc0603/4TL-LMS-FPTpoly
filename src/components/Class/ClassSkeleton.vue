@@ -35,10 +35,10 @@ export default {};
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ddd;
+    color: var(--fds-gray-10);
     background-color: rgb(255, 255, 255);
 
-    border-right: 3px solid var(--black);
+    border-right: 3px solid var(--fds-gray-10);
     animation: pulse-bg 2.5s infinite;
   }
   &__detail {
@@ -55,26 +55,26 @@ export default {};
       font-size: 18px;
       font-family: "Segoe UI Bold";
       text-transform: uppercase;
-      background-color: #ddd;
+      background-color: var(--fds-gray-10);
     }
     &--sup,
     &--time {
       font-size: 1.6rem;
       width: 80%;
-      background-color: #ddd;
+      background-color: var(--fds-gray-10);
       height: 16px;
       line-height: 140%;
     }
   }
   @keyframes pulse-bg {
     0% {
-      background-color: #ddd;
+      background-color: var(--fds-gray-10);
     }
     50% {
-      background-color: #d0d0d0;
+      background-color: var(--fds-gray-20);
     }
     100% {
-      background-color: #ddd;
+      background-color: var(--fds-gray-10);
     }
   }
 }

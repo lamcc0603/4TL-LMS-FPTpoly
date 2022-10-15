@@ -18,7 +18,7 @@
 
       <!-- Tab content -->
       <div id="{{tab1}}" class="tabcontent">
-        <div v-if="!course.listDocument.length">Loading document.....</div>
+        <div v-if="!course.listDocument">Loading document.....</div>
         <template v-else>
           <div
             v-for="documentItem in course.listDocument"
@@ -31,7 +31,7 @@
       </div>
 
       <div id="{{tab2}}" class="tabcontent">
-        <div v-if="!course.listLabs.length">Loading Labs.....</div>
+        <div v-if="!course.listLabs">Loading Labs.....</div>
         <div v-else>
           <h3>Paris</h3>
           <p>Paris is the capital of France.</p>

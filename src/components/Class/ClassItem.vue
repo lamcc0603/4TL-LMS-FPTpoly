@@ -20,7 +20,7 @@
     </div>
     <div class="class__detail">
       <h3 class="class__detail--title">
-        {{ teacher?.name }}
+        {{ teacher?.name + "-" + classes?.name }}
       </h3>
       <p class="class__detail--sup">
         {{ subject.name }}
@@ -55,6 +55,7 @@ export default {
       default: "",
     },
     isClasses: {},
+    classes: {},
   },
   setup() {},
 };
