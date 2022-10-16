@@ -31,16 +31,23 @@
       </div>
 
       <div id="{{tab2}}" class="tabcontent">
-        <div v-if="!course.listLabs">Loading Labs.....</div>
-        <div v-else>
-          <h3>Paris</h3>
-          <p>Paris is the capital of France.</p>
-        </div>
+        <div v-if="!course.listLabs">Loading Labs...</div>
+        <template v-else>
+          <div class="exer_box" v-for="lab in course.listLabs" :key="lab.id">
+            <a href="#">{{ lab.name }}</a>
+            <p>Ended On: {{ lab.updated_at }}</p>
+          </div>
+        </template>
       </div>
 
       <div id="{{tab3}}" class="tabcontent">
-        <h3>quiz</h3>
-        <p>Tokyo is the capital of Japan.</p>
+        <div v-if="!course.listAsms">Loading Asms...</div>
+        <template v-else>
+          <div class="exer_box" v-for="asm in course.listAsms" :key="asm.id">
+            <a href="#">{{ asm.name }}</a>
+            <p>Ended On: {{ asm.updated_at }}</p>
+          </div>
+        </template>
       </div>
       <div id="{{tab4}}" class="tabcontent">
         <h3>asm</h3>
@@ -159,7 +166,7 @@ onMounted(() => {
 
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 10px;
   & h3 {
     font-size: 30px;
     font-family: "Segoe UI Bold";
@@ -169,10 +176,27 @@ onMounted(() => {
   & p {
     font-size: 15px;
     line-height: 1.3333;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
+    /* margin-bottom: 20px; */
     border-radius: 4px;
     border-bottom: 4px solid var(--fds-gray-05);
+  }
+  .exer_box {
+    padding: 0 10px;
+    &:hover {
+      background-color: #ffffd0;
+    }
+    a {
+      color: #000;
+      font-size: 24px;
+      font-weight: bolder;
+      text-transform: capitalize;
+      padding: 10px 0 0 0;
+      display: block;
+      &:hover {
+        color: #aaa;
+      }
+    }
   }
 }
 
