@@ -1,5 +1,5 @@
 <template>
-  <div class="quiz">
+  <div class="quiz container">
     <div class="quiz-time">
       <span>20 Hours</span>
     </div>

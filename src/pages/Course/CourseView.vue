@@ -204,6 +204,10 @@ onMounted(() => {
   display: block;
 }
 
+.exer_box {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1366px) {
   .courseBox {
     font-size: 12px;
