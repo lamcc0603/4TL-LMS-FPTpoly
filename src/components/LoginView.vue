@@ -5,7 +5,7 @@
         <img src="https://i.imgur.com/wSpPzBw.png" alt="" />
         <p class="description">HỆ THỐNG QUẢN TRỊ HỌC TẬP 4TL LMS</p>
       </div>
-      <form class="authForm">
+      <form class="authForm" @submit.enter.prevent="submitLogin">
         <span class="authForm__title">
           <h2>ĐĂNG NHẬP</h2>
         </span>
@@ -14,23 +14,43 @@
             class="authForm__group--control"
             name="username"
             placeholder="Tên đăng nhập"
+            v-model="formData.username"
+            id="username"
+            @blur="v$.username.$touch"
           />
           <span class="authForm__group--icon">
             <i class="fa fa-envelope"></i>
           </span>
         </div>
+        <p
+          v-for="error in v$.username.$errors"
+          :key="error.$uid"
+          class="form__error"
+        >
+          {{ error.$message }}
+        </p>
         <div class="authForm__group">
           <input
-            required
             class="authForm__group--control"
             type="password"
             name="pass"
             placeholder="Mật khẩu"
+            v-model="formData.password"
+            id="password"
+            @blur="v$.password.$touch"
           />
           <span class="authForm__group--icon">
             <i class="fa fa-lock"></i>
           </span>
         </div>
+        <p
+          v-for="error in v$.password.$errors"
+          :key="error.$uid"
+          class="form__error"
+        >
+          {{ error.$message }}
+        </p>
+
         <div class="authForm__group">
           <button class="authForm__group--btn">Đăng nhập</button>
           <a href="#" class="authForm__group--btn danger">
@@ -41,8 +61,44 @@
     </div>
   </div>
 </template>
+
 <script>
-export default {};
+import { useVuelidate } from "@vuelidate/core";
+import { required, minLength } from "@vuelidate/validators";
+import { reactive, ref } from "@vue/reactivity";
+import { computed } from "@vue/runtime-core";
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const route = useRouter();
+    const formData = reactive({
+      username: "",
+      password: "",
+    });
+    const requiredNameLength = ref(8);
+
+    const rules = computed(() => {
+      return {
+        username: {
+          required,
+        },
+        password: { required, minLength: minLength(requiredNameLength.value) },
+      };
+    });
+    const v$ = useVuelidate(rules, formData);
+
+    const submitLogin = async () => {
+      const result = await v$.value.$validate();
+      if (result) {
+        route.push("/home");
+      } else {
+        alert("no");
+      }
+    };
+    return { submitLogin, formData, v$ };
+  },
+};
 </script>
 <style scoped lang="scss">
 @import "@/assets/styles/_mixins.scss";
@@ -147,6 +203,11 @@ hr {
       background-color: #c61717;
     }
   }
+}
+.form__error {
+  color: var(--fds-red-55);
+  margin: 1.5rem;
+  margin-top: 0rem;
 }
 @include mobile {
   .authDescription {
