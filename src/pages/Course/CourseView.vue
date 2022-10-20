@@ -36,44 +36,44 @@
           <div class="exer_box" v-for="lab in course.listLabs" :key="lab.id">
             <a href="#">{{ lab.name }}</a>
             <p>Ended On: {{ lab.updated_at }}</p>
-            <DropZone
-              class="drop-area"
-              @files-dropped="addFiles"
-              #default="{ dropZoneActive }"
-            >
-              <label for="file-input">
-                <span v-if="dropZoneActive">
-                  <span>Drop Them Here</span>
-                  <span class="smaller">to add them</span>
-                </span>
-                <span v-else>
-                  <span>Drag Your Files Here</span>
-                  <span class="smaller">
-                    or <strong><em>click here</em></strong> to select files
-                  </span>
-                </span>
-
-                <input
-                  type="file"
-                  id="file-input"
-                  multiple
-                  @change="onInputChange"
-                />
-              </label>
-              <ul class="image-list" v-show="files.length">
-                <FilePreview
-                  v-for="file of files"
-                  :key="file.id"
-                  :file="file"
-                  tag="li"
-                  @remove="removeFile"
-                />
-              </ul>
-              <button @click.prevent="uploadFiles(files)" class="upload-button">
-                Upload
-              </button>
-            </DropZone>
           </div>
+          <DropZone
+            class="drop-area"
+            @files-dropped="addFiles"
+            #default="{ dropZoneActive }"
+          >
+            <label for="file-input">
+              <span v-if="dropZoneActive">
+                <span>Drop Them Here</span>
+                <span class="smaller">to add them</span>
+              </span>
+              <span v-else>
+                <span>Kéo tệp</span>
+                <span class="smaller">
+                  hoặc <strong><em>bấm vào đây</em></strong> để chọn tệp
+                </span>
+              </span>
+
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                @change="onInputChange"
+              />
+            </label>
+            <ul class="image-list" v-show="files.length">
+              <FilePreview
+                v-for="file of files"
+                :key="file.id"
+                :file="file"
+                tag="li"
+                @remove="removeFile"
+              />
+            </ul>
+            <button @click.prevent="uploadFiles(files)" class="upload-button">
+              Tải tệp lên
+            </button>
+          </DropZone>
         </template>
       </div>
 
@@ -329,6 +329,38 @@ onMounted(() => {
 @media screen and (max-width: 767.98px) {
   .courseBox {
     font-size: 10px;
+  }
+}
+
+.drop-area {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  label {
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 20px 0;
+    }
+  }
+  .upload-button {
+    background: cyan;
+    border-radius: 4px;
+    padding: 8px 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
   }
 }
 </style>
