@@ -1,15 +1,14 @@
-.btn__login {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  &--text {
-    text-align: center;
-    font-size: 1.6rem;
-    display: block;
-    width: 11rem;
-    height: 4rem;
-    line-height: 4rem;
-    background: var(--light-green);
+.btn {
+  padding: 10px 40px;
+  &-back {
+    text-transform: capitalize;
+    color: var(--white);
     border-radius: 7px;
+    background: var(--btn-back);
+    display: inline-block;
+    font-size: 20px;
+    &:hover {
+      background: var(--message-self);
+    }
   }
 }

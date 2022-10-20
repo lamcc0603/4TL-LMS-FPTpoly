@@ -180,9 +180,6 @@ export default {
       height: 100%;
     }
   }
-  .btn__login {
-    margin-left: auto;
-  }
   .header .user {
     &__box {
       margin-left: auto;
@@ -210,10 +207,6 @@ export default {
       order: 2;
       margin: 0 auto;
     }
-  }
-  .btn__login {
-    margin-left: 0;
-    order: 3;
   }
   .header .nav {
     order: 1;

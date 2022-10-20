@@ -1,10 +1,12 @@
 <template>
   <HeaderView />
-  <div class="container">
+  <router-view v-slot="{ Component }" class="container">
     <div class="content">
-      <slot :key="$route.path" />
+      <transition name="fade">
+        <component :is="Component" :key="$route.path" />
+      </transition>
     </div>
-  </div>
+  </router-view>
   <FooterView />
 </template>
 
