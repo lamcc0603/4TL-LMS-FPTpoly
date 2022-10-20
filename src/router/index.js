@@ -4,16 +4,33 @@ const routes = [
   {
     path: "/",
     name: "home",
+    meta: {
+      auth: true,
+    },
+    component: () => import("@/pages/Home/HomeView.vue"),
+  },
+  {
+    path: "/home",
+    name: "home",
+    meta: {
+      auth: true,
+    },
     component: () => import("@/pages/Home/HomeView.vue"),
   },
   {
     path: "/class/:pathMatch(.*)*",
     name: "class",
+    meta: {
+      auth: true,
+    },
     component: () => import("@/pages/Class/ClassView.vue"),
   },
   {
     path: "/course",
     name: "course",
+    meta: {
+      auth: true,
+    },
     children: [
       {
         name: `course`,
@@ -27,6 +44,7 @@ const routes = [
     name: "about",
     meta: {
       layout: "auth",
+      auth: true,
     },
     component: () => import("@/pages/About/AboutView.vue"),
   },
@@ -35,6 +53,7 @@ const routes = [
     name: " Xác thực người dùng",
     meta: {
       layout: "auth",
+      auth: false,
     },
 
     component: () => import("@/components/LoginView.vue"),
@@ -42,12 +61,26 @@ const routes = [
   {
     path: "/chat",
     name: "chat",
+    meta: {
+      auth: true,
+    },
     component: () => import("@/pages/Chat/ClientChat.vue"),
   },
   {
     path: "/quiz",
     name: "quiz",
+    meta: {
+      auth: true,
+    },
     component: () => import("@/components/Quiz/QuizDetailView.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    meta: {
+      layout: "404",
+    },
+    component: () => import("@/pages/NotFound/NotFound.vue"),
   },
 ];
 
@@ -56,9 +89,8 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  document.title = `4tl-${to.name}`;
-  next();
+router.beforeEach(async (to) => {
+  document.title = `4tl-${!to.name ? "Trang chủ" : to.name}`;
 });
 
 export default router;

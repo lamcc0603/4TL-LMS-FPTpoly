@@ -9,4 +9,8 @@ export function regsiterGlobalComponent(app) {
     "default-layout",
     defineAsyncComponent(() => import("@/layouts/default-layout"))
   );
+  app.component(
+    "404-layout",
+    defineAsyncComponent(() => import("@/layouts/404-layout"))
+  );
 }

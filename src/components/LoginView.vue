@@ -12,18 +12,18 @@
         <div class="authForm__group">
           <input
             class="authForm__group--control"
-            name="username"
-            placeholder="Tên đăng nhập"
-            v-model="formData.username"
-            id="username"
-            @blur="v$.username.$touch"
+            name="email"
+            placeholder="Email"
+            v-model="formData.email"
+            id="email"
+            @blur="v$.email.$touch"
           />
           <span class="authForm__group--icon">
             <i class="fa fa-envelope"></i>
           </span>
         </div>
         <p
-          v-for="error in v$.username.$errors"
+          v-for="error in v$.email.$errors"
           :key="error.$uid"
           class="form__error"
         >
@@ -64,7 +64,7 @@
 
 <script>
 import { useVuelidate } from "@vuelidate/core";
-import { required, minLength } from "@vuelidate/validators";
+import { required, minLength, email } from "@vuelidate/validators";
 import { reactive, ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
@@ -73,15 +73,16 @@ export default {
   setup() {
     const route = useRouter();
     const formData = reactive({
-      username: "",
+      email: "",
       password: "",
     });
     const requiredNameLength = ref(8);
 
     const rules = computed(() => {
       return {
-        username: {
+        email: {
           required,
+          email,
         },
         password: { required, minLength: minLength(requiredNameLength.value) },
       };
