@@ -37,6 +37,43 @@
             <a href="#">{{ lab.name }}</a>
             <p>Ended On: {{ lab.updated_at }}</p>
           </div>
+          <DropZone
+            class="drop-area"
+            @files-dropped="addFiles"
+            #default="{ dropZoneActive }"
+          >
+            <label for="file-input">
+              <span v-if="dropZoneActive">
+                <span>Drop Them Here</span>
+                <span class="smaller">to add them</span>
+              </span>
+              <span v-else>
+                <span>Kéo tệp</span>
+                <span class="smaller">
+                  hoặc <strong><em>bấm vào đây</em></strong> để chọn tệp
+                </span>
+              </span>
+
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                @change="onInputChange"
+              />
+            </label>
+            <ul class="image-list" v-show="files.length">
+              <FilePreview
+                v-for="file of files"
+                :key="file.id"
+                :file="file"
+                tag="li"
+                @remove="removeFile"
+              />
+            </ul>
+            <button @click.prevent="uploadFiles(files)" class="upload-button">
+              Tải tệp lên
+            </button>
+          </DropZone>
         </template>
       </div>
 
@@ -44,8 +81,48 @@
         <div v-if="!course.listAsms">Loading Asms...</div>
         <template v-else>
           <div class="exer_box" v-for="asm in course.listAsms" :key="asm.id">
-            <a href="#">{{ asm.name }}</a>
+            <a href="#" @click="() => TogglePopup('buttonTriggers')">{{
+              asm.name
+            }}</a>
             <p>Ended On: {{ asm.updated_at }}</p>
+            <DropZone
+              class="drop-area"
+              @files-dropped="addFiles"
+              #default="{ dropZoneActive }"
+              v-if="buttonTriggers"
+            >
+              <label for="file-input">
+                <span v-if="dropZoneActive">
+                  <span>Drop Them Here</span>
+                  <span class="smaller">to add them</span>
+                </span>
+                <span v-else>
+                  <span>Drag Your Files Here</span>
+                  <span class="smaller">
+                    or <strong><em>click here</em></strong> to select files
+                  </span>
+                </span>
+
+                <input
+                  type="file"
+                  id="file-input"
+                  multiple
+                  @change="onInputChange"
+                />
+              </label>
+              <ul class="image-list" v-show="files.length">
+                <FilePreview
+                  v-for="file of files"
+                  :key="file.id"
+                  :file="file"
+                  tag="li"
+                  @remove="removeFile"
+                />
+              </ul>
+              <button @click.prevent="uploadFiles(files)" class="upload-button">
+                Upload
+              </button>
+            </DropZone>
           </div>
         </template>
       </div>
@@ -65,11 +142,47 @@
     <div class="asside"></div>
   </div>
 </template>
+<script>
+export default {
+  setup() {
+    const popupTriggers = ref({
+      buttonTriggers: false,
+      timedTriggers: false,
+    });
+
+    const TogglePopup = (trigger) => {
+      popupTriggers.buttonTriggers.value[trigger] =
+        !popupTriggers.value[trigger];
+    };
+
+    return { popupTriggers, TogglePopup };
+  },
+};
+</script>
 <script setup>
 import { computed, onMounted, ref } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import QuizItem from "./QuizItem.vue";
+
+//
+import DropZone from "@/components/Upload/DropZone.vue";
+// import FilePreview from '@/components/Upload/FilePeview.vue'
+
+// File Management
+import useFileList from "@/compositions/file-list";
+// import PopupView from "./PopupView.vue";
+const { files, addFiles, removeFile } = useFileList();
+
+function onInputChange(e) {
+  addFiles(e.target.files);
+  e.target.value = null; // reset so that selecting the same file again will still cause it to fire this change
+}
+
+// Uploader
+// import createUploader from './compositions/file-uploader'
+// const { uploadFiles } = createUploader('YOUR URL HERE')
+//
 
 const tab1 = ref("Tài liệu");
 const tab2 = ref("Lab");
@@ -216,6 +329,38 @@ onMounted(() => {
 @media screen and (max-width: 767.98px) {
   .courseBox {
     font-size: 10px;
+  }
+}
+
+.drop-area {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  label {
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 20px 0;
+    }
+  }
+  .upload-button {
+    background: cyan;
+    border-radius: 4px;
+    padding: 8px 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
   }
 }
 </style>
