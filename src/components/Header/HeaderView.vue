@@ -9,15 +9,17 @@
     <NavView class="nav" />
 
     <div class="user__box">
-      <div class="user__image center">
-        <img src="@/assets/images/user.png" alt="" />
-        <p class="user__image--name">Chung chí lâm</p>
+      <div class="box__toggle" @click="toggleShow">
+        <div class="user__notification">
+          <i class="fa-solid fa-bell"></i>
+          <div class="notification__circle">1</div>
+        </div>
+        <div class="user__image center">
+          <img src="@/assets/images/user.png" alt="" />
+          <p class="user__image--name">Chung chí lâm</p>
+        </div>
       </div>
-      <div class="user__notification">
-        <i class="fa-solid fa-bell"></i>
-        <div class="notification__circle">1</div>
-      </div>
-      <ul class="user__setting">
+      <ul class="user__setting" v-show="isOpen">
         <UserSettingItem
           icon=" fa-solid fa-user"
           itemTitle="Trang cá nhân"
@@ -44,15 +46,20 @@ import NavView from "@/components/Nav/NavView.vue";
 import UserSettingItem from "@/components/Header/UserSettingItem.vue";
 
 import router from "@/router";
+import { ref } from "@vue/reactivity";
 
 export default {
   components: { NavView, UserSettingItem },
   setup() {
+    const isOpen = ref(false);
     const toggleLogOut = () => {
       localStorage.clear();
       router.push("/login");
     };
-    return { toggleLogOut };
+    const toggleShow = () => {
+      isOpen.value = !isOpen.value;
+    };
+    return { toggleLogOut, toggleShow, isOpen };
   },
 };
 </script>
@@ -168,6 +175,12 @@ export default {
   text-align: center;
   font-size: 1.4rem;
 }
+
+.box__toggle {
+  display: flex;
+  gap: 20px;
+}
+
 @media screen and (max-width: 1366px) {
   .header {
     padding: 0 20px;
