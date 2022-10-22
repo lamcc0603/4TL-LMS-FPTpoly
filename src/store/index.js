@@ -7,8 +7,8 @@ export default createStore({
     return {
       classes: [],
       course: {},
-      user: { id: 1, name: "Chí Lâm" },
-      isLogin: false,
+      user: { email: "lam1@gmail.com", password: "123123123" },
+      authenticated: localStorage.getItem("authenticated") || false,
     };
   },
   getters: {},
@@ -18,6 +18,10 @@ export default createStore({
     },
     setCourse(state, coursePayload) {
       state.course = coursePayload;
+    },
+    setAuthenticated(state, payload) {
+      state.authenticated = payload;
+      localStorage.setItem("authenticated", payload);
     },
   },
   actions: {

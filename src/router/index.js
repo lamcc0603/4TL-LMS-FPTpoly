@@ -10,14 +10,6 @@ const routes = [
     component: () => import("@/pages/Home/HomeView.vue"),
   },
   {
-    path: "/home",
-    name: "home",
-    meta: {
-      auth: true,
-    },
-    component: () => import("@/pages/Home/HomeView.vue"),
-  },
-  {
     path: "/class/:pathMatch(.*)*",
     name: "class",
     meta: {
@@ -50,7 +42,7 @@ const routes = [
   },
   {
     path: "/login",
-    name: " Xác thực người dùng",
+    name: "login",
     meta: {
       layout: "auth",
       auth: false,
@@ -80,7 +72,7 @@ const routes = [
     meta: {
       layout: "404",
     },
-    component: () => import("@/pages/NotFound/NotFound.vue"),
+    component: () => import("@/layouts/404-layout.vue"),
   },
 ];
 
@@ -91,6 +83,16 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
   document.title = `4tl-${!to.name ? "Trang chủ" : to.name}`;
+});
+
+router.beforeEach((to, from, next) => {
+  const isLogin = localStorage.getItem("authenticated") || false;
+  const requiresAuth = to.matched.some((record) => record.meta.auth);
+
+  if (requiresAuth && !isLogin) {
+    next({ name: "login" });
+  } else if (!requiresAuth && isLogin) next("/");
+  else next();
 });
 
 export default router;

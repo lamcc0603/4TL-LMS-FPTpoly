@@ -8,8 +8,8 @@
 
     <NavView class="nav" />
 
-    <div class="user__box" v-if="isLogin">
-      <div class="user__image center" @click="isShow = !isShow">
+    <div class="user__box">
+      <div class="user__image center">
         <img src="@/assets/images/user.png" alt="" />
         <p class="user__image--name">Chung chí lâm</p>
       </div>
@@ -17,7 +17,7 @@
         <i class="fa-solid fa-bell"></i>
         <div class="notification__circle">1</div>
       </div>
-      <ul class="user__setting" v-show="isShow">
+      <ul class="user__setting">
         <UserSettingItem
           icon=" fa-solid fa-user"
           itemTitle="Trang cá nhân"
@@ -29,10 +29,10 @@
           itemLink="/chat"
         />
         <UserSettingItem
-          @click="toggleLogin"
+          @click="toggleLogOut"
           icon="fa-solid fa-right-from-bracket"
           itemTitle="Thoát"
-          itemLink="/home"
+          itemLink="/login"
         />
       </ul>
     </div>
@@ -42,19 +42,17 @@
 <script>
 import NavView from "@/components/Nav/NavView.vue";
 import UserSettingItem from "@/components/Header/UserSettingItem.vue";
-import { ref } from "@vue/runtime-core";
+
+import router from "@/router";
 
 export default {
   components: { NavView, UserSettingItem },
   setup() {
-    const isLogin = ref(true);
-    const isShow = ref(false);
-
-    const toggleLogin = () => {
-      isLogin.value = !isLogin.value;
-      isShow.value = false;
+    const toggleLogOut = () => {
+      localStorage.clear();
+      router.push("/login");
     };
-    return { isLogin, isShow, toggleLogin };
+    return { toggleLogOut };
   },
 };
 </script>

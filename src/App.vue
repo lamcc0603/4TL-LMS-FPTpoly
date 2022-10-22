@@ -13,7 +13,6 @@ import { PUBLIC_LAYOUT } from "@/constants";
 export default {
   setup() {
     const route = useRoute();
-
     return {
       layout: computed(() => (route.meta.layout || PUBLIC_LAYOUT) + "-layout"),
     };

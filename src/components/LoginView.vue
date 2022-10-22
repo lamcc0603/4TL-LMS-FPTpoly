@@ -67,11 +67,14 @@ import { useVuelidate } from "@vuelidate/core";
 import { required, minLength, email } from "@vuelidate/validators";
 import { reactive, ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
 export default {
   setup() {
-    const route = useRouter();
+    const store = useStore();
+    const router = useRouter();
+    // const authenticated = computed(() => store.state.authenticated);
     const formData = reactive({
       email: "",
       password: "",
@@ -89,14 +92,31 @@ export default {
     });
     const v$ = useVuelidate(rules, formData);
 
+    // if (authenticated) {
+    //   console.log("call api lấy user", authenticated.value);
+    // } else {
+    //   console.log("đã đăng nhập lần trước", authenticated.value);
+    // }
+
     const submitLogin = async () => {
       const result = await v$.value.$validate();
-      if (result) {
-        route.push("/home");
+
+      if (
+        result &&
+        formData.email == store.state.user.email &&
+        formData.password == store.state.user.password
+      ) {
+        console.log("Đăng nhập done");
+        store.commit("setAuthenticated", true);
+        if (store.state.authenticated) {
+          router.push({ name: "login", query: { redirect: "/" } });
+        }
       } else {
-        alert("no");
+        console.log("đăng nhập fail");
+        store.commit("setAuthenticated", false);
       }
     };
+
     return { submitLogin, formData, v$ };
   },
 };
