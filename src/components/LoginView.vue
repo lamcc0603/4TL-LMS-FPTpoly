@@ -106,13 +106,11 @@ export default {
         formData.email == store.state.user.email &&
         formData.password == store.state.user.password
       ) {
-        console.log("Đăng nhập done");
         store.commit("setAuthenticated", true);
         if (store.state.authenticated) {
           router.push({ name: "login", query: { redirect: "/" } });
         }
       } else {
-        console.log("đăng nhập fail");
         store.commit("setAuthenticated", false);
       }
     };

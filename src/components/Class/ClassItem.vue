@@ -14,20 +14,22 @@
     </div>
   </router-link>
 
-  <router-link v-else :to="`${route}`" class="class__item">
-    <div class="class__icon">
-      <i class="fa-solid fa-book"></i>
-    </div>
-    <div class="class__detail">
-      <h3 class="class__detail--title">
-        {{ teacher?.name + "-" + classes?.name }}
-      </h3>
-      <p class="class__detail--sup">
-        {{ subject.name }}
-      </p>
-      <p class="class__detail--time">{{ term }}</p>
-    </div>
-  </router-link>
+  <form action="" v-else class="class__join">
+    <router-link :to="`${route}`" class="class__item">
+      <div class="class__icon">
+        <i class="fa-solid fa-book"></i>
+      </div>
+      <div class="class__detail">
+        <h3 class="class__detail--title">
+          {{ teacher?.name + "-" + classes?.name }}
+        </h3>
+        <p class="class__detail--sup">
+          {{ subject.name }}
+        </p>
+        <p class="class__detail--time">{{ term }}</p>
+      </div>
+    </router-link>
+  </form>
 </template>
 
 <script>
@@ -63,10 +65,14 @@ export default {
 
 <style lang="scss" scoped>
 .class {
+  &__join {
+    max-width: 600px;
+    width: 100%;
+  }
   &__item {
     display: flex;
     max-width: 600px;
-    height: auto;
+    // height: auto;
     padding: 15px;
     background: var(--white);
     color: var(--black);

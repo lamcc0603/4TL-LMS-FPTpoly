@@ -78,8 +78,8 @@ export default {
 .class {
   width: 100%;
   font-size: 1.6rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   // padding: 10px 10px 15% 20px;
 }
