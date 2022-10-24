@@ -109,6 +109,7 @@ export default {
         store.commit("setAuthenticated", true);
         if (store.state.authenticated) {
           router.push({ name: "login", query: { redirect: "/" } });
+          store.dispatch("getUserInfo");
         }
       } else {
         store.commit("setAuthenticated", false);

@@ -26,7 +26,6 @@ export default {};
     color: var(--black);
     border-radius: 14px;
     box-shadow: 2px 2px 5px 0px var(--fds-black-alpha-05);
-    border-radius: 14px;
     animation: pulse-bg 2.5s infinite;
   }
   &__icon {
@@ -38,7 +37,6 @@ export default {};
     color: var(--fds-gray-10);
     background-color: rgb(255, 255, 255);
 
-    border-right: 3px solid var(--fds-gray-10);
     animation: pulse-bg 2.5s infinite;
   }
   &__detail {
@@ -47,6 +45,8 @@ export default {};
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border-left: 3px solid var(--fds-gray-05);
+
     animation: pulse-bg 2.5s infinite;
     &--title {
       content: " ";

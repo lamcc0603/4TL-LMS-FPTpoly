@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!classes.length">
+  <div v-if="loading">
     <div class="class">
       <ClassSkeleton />
       <ClassSkeleton />
@@ -9,11 +9,7 @@
   </div>
 
   <div class="class" v-else>
-    <div
-      class="class__item"
-      v-for="classItem of classes"
-      :key="classItem.folder_tree_id"
-    >
+    <template v-for="classItem of classes" :key="classItem.folder_tree_id">
       <ClassItem
         :isClasses="classItem?.folder_tree_id ? true : false"
         :route="
@@ -29,9 +25,10 @@
         :teacher="classItem?.teacher_id"
         :term="classItem?.term"
         :classes="classItem?.class_id"
+        :courseId="classItem?.id"
       >
       </ClassItem>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -69,18 +66,28 @@ export default {
         return `/course/${id}`;
       }
     };
-    return { classes, setRouteParent };
+
+    const loading = computed(() => {
+      return store.state.loading;
+    });
+    return { classes, setRouteParent, loading };
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/_mixins.scss";
+
 .class {
   width: 100%;
   font-size: 1.6rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  // padding: 10px 10px 15% 20px;
+}
+@include mobile {
+  .class {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

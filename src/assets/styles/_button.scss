@@ -11,4 +11,19 @@
       background: var(--message-self);
     }
   }
+  &-access,
+  &-close {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 7px;
+    font-family: "Segoe UI Bold";
+    color: var(--white);
+  }
+  &-access {
+    background: var(--btn-send-message);
+  }
+  &-close {
+    background: var(--notification);
+  }
 }

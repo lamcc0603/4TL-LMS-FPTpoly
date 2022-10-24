@@ -19,8 +19,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/_mixins.scss";
+
 .menu {
   display: flex;
+  align-items: center;
   flex: 3;
   gap: 50px;
 }
@@ -31,7 +34,7 @@ export default {
     display: none;
   }
 }
-@media screen and (max-width: 1366px) {
+@include tablet {
   .menu {
     gap: 20px;
     &__item {
@@ -39,7 +42,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 767.98px) {
+@include mobile {
   .menu {
     visibility: hidden;
     opacity: 0;
@@ -47,6 +50,7 @@ export default {
   }
   .mobile {
     &__menu {
+      width: 90px;
       cursor: pointer;
       visibility: visible;
       opacity: 1;

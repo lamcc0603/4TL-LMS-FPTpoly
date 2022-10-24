@@ -1,8 +1,12 @@
 <template>
   <header class="header">
     <div class="header__logo">
-      <router-link to="/">
-        <img src="@/assets/images/4TL_Logo_png.png" alt="logo_fpt" />
+      <router-link to="/" class="header__logo--link">
+        <img
+          src="@/assets/images/4TL_Logo_png.png"
+          alt="logo_fpt"
+          class="header__logo--item"
+        />
       </router-link>
     </div>
 
@@ -65,6 +69,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/styles/_mixins.scss";
+
 .header {
   display: flex;
 
@@ -79,17 +85,15 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 200px;
+    max-width: 150px;
     height: auto;
     flex: 1;
-    & a {
-      height: 80%;
-      max-height: 100px;
+    &--link {
       display: block;
-    }
-    & img {
-      width: 150px;
+      width: 100%;
       height: 100%;
+    }
+    &--item {
       object-fit: contain;
     }
   }
@@ -181,14 +185,11 @@ export default {
   gap: 20px;
 }
 
-@media screen and (max-width: 1366px) {
+@include tablet {
   .header {
     padding: 0 20px;
 
     &__logo {
-      margin: auto 0;
-      max-width: 100px;
-      height: 100%;
     }
   }
   .header .user {
@@ -207,16 +208,19 @@ export default {
     }
   }
 }
-@media screen and (max-width: 767.98px) {
+@include mobile {
   .header {
     padding: 0 10px;
     grid-template-columns: 10% 1fr 30%;
     height: 100px;
     margin-bottom: 20px;
     &__logo {
-      max-width: 100%;
       order: 2;
       margin: 0 auto;
+      & a {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
   .header .nav {
@@ -227,7 +231,7 @@ export default {
       order: 3;
     }
     &__setting {
-      top: 10%;
+      top: 100%;
     }
   }
 }
