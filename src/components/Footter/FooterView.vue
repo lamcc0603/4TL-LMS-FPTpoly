@@ -106,13 +106,15 @@ export default {};
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/styles/_mixins.scss";
+
 .footer {
-  max-height: 300px;
-  height: 300px;
+  min-height: 300px;
+  height: 100%;
   background: var(--white);
   color: var(--black);
   display: grid;
-  grid-template-columns: 300px repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 3rem;
   padding: 50px 50px 3rem 50px;
   box-shadow: 0px -3px 8px var(--fds-black-alpha-05);
@@ -160,18 +162,16 @@ export default {};
   font-size: 1.4rem;
   font-family: "Segoe UI Bold";
 }
-@media screen and (max-width: 1366px) {
+@include tablet {
   .footer {
     max-height: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
     padding: 10px;
     &__logo {
       margin: 0 auto;
     }
   }
 }
-@media screen and (max-width: 767.98px) {
+@include mobile {
 }
 </style>

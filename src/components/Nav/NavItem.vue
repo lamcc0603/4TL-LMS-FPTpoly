@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/_mixins.scss";
+
 .menu {
   &__item {
     padding: 30px 30px;
@@ -37,7 +39,7 @@ export default {
     height: 100%;
   }
 }
-@media screen and (max-width: 1366px) {
+@include tablet {
   .menu {
     &__item {
       padding: 0;

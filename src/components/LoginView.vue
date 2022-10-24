@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div class="logo">
+      <img src="@/assets/images/4TL_Logo_png.png" alt="" />
+    </div>
     <div class="auth">
       <div class="authDescription">
         <img src="https://i.imgur.com/wSpPzBw.png" alt="" />
@@ -69,7 +72,6 @@ import { reactive, ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-
 export default {
   setup() {
     const store = useStore();
@@ -228,6 +230,9 @@ hr {
   color: var(--fds-red-55);
   margin: 1.5rem;
   margin-top: 0rem;
+}
+.logo {
+  max-width: 200px;
 }
 @include mobile {
   .authDescription {

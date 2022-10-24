@@ -226,6 +226,8 @@ onMounted(() => {
 });
 </script>
 <style scoped lang="scss">
+@import "@/assets/styles/_mixins.scss";
+
 .courseBox {
   font-size: 16px;
   width: 100%;
@@ -321,12 +323,12 @@ onMounted(() => {
   cursor: pointer;
 }
 
-@media screen and (max-width: 1366px) {
+@include tablet {
   .courseBox {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 767.98px) {
+@include mobile {
   .courseBox {
     font-size: 10px;
   }
