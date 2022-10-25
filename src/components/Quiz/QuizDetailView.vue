@@ -29,9 +29,13 @@
             v-for="(answer, indexAnswer) in quiz.answers"
             :key="indexAnswer"
           >
-            <input type="radio" :name="'quiz' + (index + 1)" id="" /><span>{{
-              answer.answer
-            }}</span>
+            <input
+              v-model="yourAnswer[index].answer"
+              :value="indexAnswer + 1"
+              type="radio"
+              :name="'quiz' + (index + 1)"
+              id=""
+            /><span>{{ answer.answer }}</span>
           </label>
         </form>
         <div class="quiz-button">
@@ -49,11 +53,7 @@
           >
             Tiếp &rightarrow;
           </button>
-          <button
-            class="quiz-submit"
-            @click="changeQuestion('next', index + 1)"
-            v-if="index == 9"
-          >
+          <button class="quiz-submit" v-if="index == 9" @click="onSubmitForm">
             Xác nhận
           </button>
         </div>
@@ -151,48 +151,7 @@ import quizAPI from "@/apis/quiz";
 
 export default {
   setup() {
-    // const yourAnswer = ref([
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   },
-    //   {
-    //     id: 1,
-    //     answer: 1
-    //   }
-    // ]);
+    const yourAnswer = ref([]);
     const listQuiz = ref([]);
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -201,6 +160,12 @@ export default {
     const getListQuiz = async () => {
       const res = await quizAPI.getQuizBySubjectAndLevel(idSubject, level);
       listQuiz.value = await res.data.question;
+      listQuiz.value.forEach((element) => {
+        yourAnswer.value.push({
+          id: element.id,
+          answer: 0,
+        });
+      });
     };
     getListQuiz();
 
@@ -230,9 +195,9 @@ export default {
     };
 
     const onSubmitForm = () => {
-      // console.log(yourAnswer.value);
+      console.log(yourAnswer.value);
     };
-    return { listQuiz, onSubmitForm, changeQuestion, openTab };
+    return { listQuiz, onSubmitForm, changeQuestion, openTab, yourAnswer };
   },
 };
 </script>
