@@ -9,6 +9,7 @@ export default createStore({
     return {
       classes: [],
       course: {},
+      subjectId: undefined,
       user: { email: "lam1@gmail.com", password: "123123123" },
       fakeUser: null,
       authenticated: localStorage.getItem("authenticated") || false,
@@ -23,6 +24,7 @@ export default createStore({
     },
     setCourse(state, coursePayload) {
       state.course = coursePayload;
+      state.subjectId = coursePayload.course_info.subject_id.id;
     },
     setAuthenticated(state, payload) {
       state.authenticated = payload;

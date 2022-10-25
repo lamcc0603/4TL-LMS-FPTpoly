@@ -190,7 +190,7 @@ export default {
 };
 </script>
 <script setup>
-import { computed, onMounted, ref } from "@vue/runtime-core";
+import { computed, ref } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import QuizItem from "./QuizItem.vue";
@@ -212,15 +212,14 @@ function onInputChange(e) {
 // Uploader
 // import createUploader from './compositions/file-uploader'
 // const { uploadFiles } = createUploader('YOUR URL HERE')
-//
+
+const route = useRoute();
+const store = useStore();
 const tab1 = ref("Tài liệu");
 const tab2 = ref("Lab");
 const tab3 = ref("Assignment");
 const tab4 = ref("Quiz");
-const idSubject = ref("1");
 
-const route = useRoute();
-const store = useStore();
 const openTab = (evt, tabName) => {
   // Declare all variables
   let i, tabcontent, tablinks;
@@ -244,16 +243,17 @@ const openTab = (evt, tabName) => {
 
 const loading = ref(false);
 let courseId = Number(route.params.id);
-
+let idSubject = ref(store.state.subjectId);
 const course = computed(() => {
   loading.value = false;
+  let idSubject = ref(store.state.subjectId);
+  console.log(idSubject.value);
+
   return store.state.course;
 });
 
-onMounted(() => {
-  store.dispatch("fetchCourseBySubjectId", { id: courseId });
-  loading.value = true;
-});
+store.dispatch("fetchCourseBySubjectId", { id: courseId });
+loading.value = true;
 </script>
 <style scoped lang="scss">
 @import "@/assets/styles/_mixins.scss";
