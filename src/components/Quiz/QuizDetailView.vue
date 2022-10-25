@@ -6,39 +6,57 @@
 
     <div class="quiz-content">
       <div class="quiz-number">
-        <button>câu 1</button>
-        <button>câu 2</button>
-        <button>câu 3</button>
-        <button>câu 4</button>
-        <button>câu 5</button>
-        <button>câu 6</button>
-        <button>câu 7</button>
-        <button>câu 8</button>
-        <button>câu 9</button>
-        <button>câu 10</button>
+        <button @click="openTab(1)">câu 1</button>
+        <button @click="openTab(2)">câu 2</button>
+        <button @click="openTab(3)">câu 3</button>
+        <button @click="openTab(4)">câu 4</button>
+        <button @click="openTab(5)">câu 5</button>
+        <button @click="openTab(6)">câu 6</button>
+        <button @click="openTab(7)">câu 7</button>
+        <button @click="openTab(8)">câu 8</button>
+        <button @click="openTab(9)">câu 9</button>
+        <button @click="openTab(10)">câu 10</button>
       </div>
-
-      <div class="quiz-question">
-        <h2 id="quiz-title" class="quiz-title">{{ question }}</h2>
+      <div
+        v-for="(quiz, index) in listQuiz"
+        :key="index"
+        :class="'tab' + (index + 1) + ' quiz-question'"
+      >
+        <h2 id="quiz-title" class="quiz-title">{{ quiz.question }}</h2>
         <form action="" method="get" class="quiz-form">
-          <label for="">
-            <input type="radio" name="" id="" /><span>{{ answer }}</span>
-          </label>
-          <label for="">
-            <input type="radio" name="" id="" /><span>{{ answer }}</span>
-          </label>
-          <label for="">
-            <input type="radio" name="" id="" /><span>{{ answer }}</span>
-          </label>
-          <label for="">
-            <input type="radio" name="" id="" /><span>{{ answer }}</span>
+          <label
+            for=""
+            v-for="(answer, indexAnswer) in quiz.answers"
+            :key="indexAnswer"
+          >
+            <input type="radio" :name="'quiz' + (index + 1)" id="" /><span>{{
+              answer.answer
+            }}</span>
           </label>
         </form>
-      </div>
-
-      <div class="quiz-button">
-        <button class="quiz-submit" @click="prev">&leftarrow; Trước</button>
-        <button class="quiz-submit" @click="next">Tiếp &rightarrow;</button>
+        <div class="quiz-button">
+          <button
+            class="quiz-submit"
+            @click="changeQuestion('prev', index + 1)"
+            v-if="index > 0"
+          >
+            &leftarrow; Trước
+          </button>
+          <button
+            class="quiz-submit"
+            @click="changeQuestion('next', index + 1)"
+            v-if="index < 9"
+          >
+            Tiếp &rightarrow;
+          </button>
+          <button
+            class="quiz-submit"
+            @click="changeQuestion('next', index + 1)"
+            v-if="index == 9"
+          >
+            Xác nhận
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -117,19 +135,104 @@
         }
       }
     }
+    .quiz-question {
+      display: none;
+    }
+    .tab1 {
+      display: block;
+    }
   }
 }
 </style>
 
 <script>
 import { ref } from "vue";
+import quizAPI from "@/apis/quiz";
 
 export default {
   setup() {
-    const question = ref("question");
-    const answer = ref("answer");
+    // const yourAnswer = ref([
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   },
+    //   {
+    //     id: 1,
+    //     answer: 1
+    //   }
+    // ]);
+    const listQuiz = ref([]);
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const idSubject = urlParams.get("idSubject");
+    const level = urlParams.get("level");
+    const getListQuiz = async () => {
+      const res = await quizAPI.getQuizBySubjectAndLevel(idSubject, level);
+      listQuiz.value = await res.data.question;
+    };
+    getListQuiz();
 
-    return { question, answer };
+    const changeQuestion = (action, currentTab) => {
+      if (action === "next") {
+        document.getElementsByClassName(`tab${currentTab}`)[0].style.display =
+          "none";
+        document.getElementsByClassName(
+          `tab${currentTab + 1}`
+        )[0].style.display = "block";
+      } else {
+        document.getElementsByClassName(`tab${currentTab}`)[0].style.display =
+          "none";
+        document.getElementsByClassName(
+          `tab${currentTab - 1}`
+        )[0].style.display = "block";
+      }
+    };
+
+    const openTab = (tabOpen) => {
+      const questionQuiz = document.getElementsByClassName("quiz-question");
+      for (let i = 0; i < questionQuiz.length; i++) {
+        questionQuiz[i].style.display = "none";
+      }
+      document.getElementsByClassName(`tab${tabOpen}`)[0].style.display =
+        "block";
+    };
+
+    const onSubmitForm = () => {
+      // console.log(yourAnswer.value);
+    };
+    return { listQuiz, onSubmitForm, changeQuestion, openTab };
   },
 };
 </script>

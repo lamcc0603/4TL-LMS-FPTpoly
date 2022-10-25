@@ -127,7 +127,37 @@
         </template>
       </div>
       <div id="{{tab4}}" class="tabcontent">
-        <h3>asm</h3>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=1'"
+          >Quiz 1</router-link
+        >
+        <p>Tokyo is the capital of Japan.</p>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=2'"
+          >Quiz 2</router-link
+        >
+        <p>Tokyo is the capital of Japan.</p>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=3'"
+          >Quiz 3</router-link
+        >
+        <p>Tokyo is the capital of Japan.</p>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=4'"
+          >Quiz 4</router-link
+        >
+        <p>Tokyo is the capital of Japan.</p>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=5'"
+          >Quiz 5</router-link
+        >
+        <p>Tokyo is the capital of Japan.</p>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=6'"
+          >Quiz 6</router-link
+        >
+        <p>Tokyo is the capital of Japan.</p>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=7'"
+          >Quiz 7</router-link
+        >
+        <p>Tokyo is the capital of Japan.</p>
+        <router-link :to="'../quiz?idSubject=' + idSubject + '&level=8'"
+          >Quiz 8</router-link
+        >
         <p>Tokyo is the capital of Japan.</p>
       </div>
       <div id="{{tab4}}" class="tabcontent">
@@ -183,11 +213,11 @@ function onInputChange(e) {
 // import createUploader from './compositions/file-uploader'
 // const { uploadFiles } = createUploader('YOUR URL HERE')
 //
-
 const tab1 = ref("Tài liệu");
 const tab2 = ref("Lab");
 const tab3 = ref("Assignment");
 const tab4 = ref("Quiz");
+const idSubject = ref("1");
 
 const route = useRoute();
 const store = useStore();

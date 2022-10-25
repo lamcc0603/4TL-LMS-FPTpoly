@@ -21,6 +21,10 @@ const quizAPI = {
     const url = `${BASE_URL}/${id}`;
     return axiosClient.delete(url);
   },
+  getQuizBySubjectAndLevel: (idSubject, level) => {
+    const url = `course/19/quiz?level=${level}&id_subject=${idSubject}`;
+    return axiosClient.get(url);
+  },
 };
 
 export default quizAPI;
